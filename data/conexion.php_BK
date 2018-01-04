@@ -1,0 +1,13 @@
+<?php 
+
+$server = "localhost";
+$user = "root";
+$password = "";
+//$db = "sis_farmaceutica";
+$db = "apdahum";
+try{
+$conn= new PDO("mysql:host=$server;dbname=$db;","$user","$password");
+} catch (PDOExeption $e){
+	die('Error de Conexión: ');
+}
+ ?>
