@@ -1,7 +1,7 @@
 <?php
 session_start();
 include('data/conexion.php');	
-
+//prsiskevin
 $_SESSION['Bandera'] = "";
 $_SESSION['Usr'] = "";
 $_SESSION['Pwd'] = "";
