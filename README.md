@@ -2,7 +2,7 @@
 
 Git clone https://github.com/CloudGt/sismedic.git
 
-git checkout -- cambios desde git
+git checkout -b elbranche -- cambios desde git
 git status -- cambios locales
 git add .
 git add --all
