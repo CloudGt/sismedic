@@ -17,6 +17,7 @@ $_SESSION['Bfarmacia'] = "";
 $_SESSION['facturaA'] = "";
 $_SESSION['action'] = "";
 //$_SESSION['id']="";
+//
 $id="";
 function protecVars($str)
 		{
