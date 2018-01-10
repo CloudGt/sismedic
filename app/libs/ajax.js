@@ -75,34 +75,34 @@ $(function(){
 			}
 		});				
 	});
-	$(".buscar-nit").off("keypress");	
-	$(".buscar-nit").on("keypress", function(e) {
-		if(e.which == 13) {
-          // Acciones a realizar, por ej: enviar formulario.
-         // $('#frm').submit();
-       
-			$.ajax({
-				url: 'Controller/ProductoController.php?page=3',
-				type: 'post',
-				dataType: 'json',
-				success: function(data) {
-					if(data.success==true){
-						$("#txt_cantidad").val('');
-						alertify.success(data.msj);
-						//$(".detalle-producto").load('doc_guardado.php?xdoc=2');
-						setTimeout(function(){
-						  //window.location.href = 'impresion.php?id='+data.idventa;
-						  $(".detalle-producto").load('detalle.php');
-						}, 3000);
-					}else{
-						alertify.error(data.msj);
-					}
-				},
-				error: function(jqXHR, textStatus, error) {
-					alertify.error(error);
+
+	$("#btn_verificanit").off("click");	
+	$("#btn_verificanit").on("click", function(e) {
+		var nit = $("#nit").val();
+
+		$.ajax({
+			url: 'Controller/ProductoController.php?page=5&&nit='+nit,
+			data: {'nit':nit},
+			type: 'POST',
+			dataType: 'json',
+			success: function(data) {
+				if(data.success==true){
+					$("#nit").val('');
+					alertify.success(data.msj);
+					
+					//setTimeout(function(){
+					  $("#infocliente").load(data.msj);
+					//}, 1000); 
+				}else{
+					alertify.error(data.msj);
 				}
-			});	
-		}			
+			},
+			error: function(jqXHR, textStatus, error) {
+				alertify.error('error ajax' + error);
+				
+			}
+		});	
+				
 	});
 
 });

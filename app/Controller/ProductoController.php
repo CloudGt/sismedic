@@ -2,9 +2,11 @@
 session_start();
 if(isset($_GET["page"])){
 	$page=$_GET["page"];
+	//$enit=$_GET["nit"];
 }else{
 	$page=0;
 }
+
 
 require_once '../Config/conexion.php';
 require_once '../Model/Producto.php';
@@ -45,7 +47,7 @@ switch($page){
 			$json['success'] = false;
 			echo json_encode($json);
 		}
-		break;
+		brvaeak;
 
 	case 2:
 		$json = array();
@@ -107,37 +109,48 @@ switch($page){
 			echo json_encode($json);
 		}
 		break;
-	case 4:
+	case 5:
 		$objProducto = new Producto();
 		$json = array();
-		$json['msj'] = 'Producto Agregado';
+		$json['msj'] = 'Cliente agregado';
 		$json['success'] = true;
-	
-		if (isset($_POST['producto_id']) && $_POST['producto_id']!='' && isset($_POST['cantidad']) && $_POST['cantidad']!='') {
-			try {
-				$cantidad = $_POST['cantidad'];
-				$producto_id = $_POST['producto_id'];
-				
-				$resultado_producto = $objProducto->getById($producto_id);
-				$producto = $resultado_producto->fetchObject();
-				$descripcion = $producto->descripcion;
-				$precio = $producto->precio;
-				
-				$subtotal = $cantidad * $precio;
-				
-				$_SESSION['detalle'][$producto_id] = array('id'=>$producto_id, 'producto'=>$descripcion, 'cantidad'=>$cantidad, 'precio'=>$precio, 'subtotal'=>$subtotal);
-
-				$json['success'] = true;
-
-				echo json_encode($json);
-	
-			} catch (PDOException $e) {
-				$json['msj'] = $e->getMessage();
-				$json['success'] = false;
-				echo json_encode($json);
+		if (isset($_GET['nit'])){
+			$elnit = $_GET['nit'];
+			if ($elnit=="CF")
+				{
+					$json['msj'] = 'cf.php';
+					$_SESSION['detalle_cliente'][$elnit] = array('nit'=>$elnit, 'nombre'=>'Consumidor Final', 'direccion'=>'Ciudad');
+					$json['success'] = true;
+					echo json_encode($json);
+				}
+				else
+				{
+				try {
+					
+					$datos_cliente = $objProducto->ObtenerNit($elnit);
+					$cliente = $datos_cliente->fetchObject();
+					$nit = $cliente->NIT;
+					$nombre = $cliente->RazonSocial;
+					$direccion= $cliente->Direccion;
+					if (!empty($nit)) 
+						{
+							$json['msj'] = 'info_nit.php';
+							
+						}else
+						{
+							$json['msj'] = 'nuevo_cliente.php';
+						}
+					$_SESSION['detalle_cliente'][$elnit] = array('nit'=>$elnit, 'nombre'=>$nombre, 'direccion'=>$direccion);
+					$json['success'] = true;
+					echo json_encode($json);
+				} catch (PDOException $e) {
+					$json['msj'] = "Error: ". $e->getMessage();
+					$json['success'] = false;
+					echo json_encode($json);
+				}
 			}
 		}else{
-			$json['msj'] = 'Ingrese un producto y/o ingrese cantidad';
+			$json['msj'] = 'Nit no valido';
 			$json['success'] = false;
 			echo json_encode($json);
 		}
@@ -146,3 +159,6 @@ switch($page){
 
 }
 ?>
+
+
+

@@ -42,6 +42,14 @@ class Producto
 		global $cnx;
 		return $cnx->query($sql);
 	}
+
+	function ObtenerNit($xnit)
+	{
+		$sql = "SELECT * FROM cliente WHERE NIT = $xnit";
+		global $cnx;
+		return $cnx->query($sql);
+	}
 	
 	
 }
+

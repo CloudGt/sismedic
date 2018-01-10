@@ -4,6 +4,7 @@ $_SESSION['detalle'] = array();
 
 require_once 'Config/conexion.php';
 require_once 'Model/Producto.php';
+require_once 'Model/nit.php';
 
 $objProducto = new Producto();
 $resultado_producto = $objProducto->get();
@@ -33,6 +34,17 @@ $resultado_producto = $objProducto->get();
 		<div class="row">
 			<div class="col-md-12">
 				<div class="row">
+					
+					<div class="col-12 col-sm-12 col-md-12">
+
+						<input type="text" name="nit" placeholder="Nit" id="nit" class="form-control col-4 col-sm-4 col-md-4">
+						<button id ="btn_verificanit"class="btn btn-success col-2 col-sm-2 col-md-2"  name="btn_verificanit">Agregar</button>
+						
+						<!-- div donde se carga la informacion del cliente encontrado o CF-->
+						<div id= "infocliente" class ="col-6 col-sm-6 col-md-6" >
+
+						</div>
+					</div>
 					<div class="col-3 col-sm-3 col-md-3">
 						<!-- etiqueta 
 						<label class="col-md-12">Código</label> -->
@@ -113,5 +125,6 @@ $resultado_producto = $objProducto->get();
 			</div>
 		</div>
  	</div>
+ 	
   </body>
 </html>
