@@ -4,7 +4,6 @@ $_SESSION['detalle'] = array();
 
 require_once 'Config/conexion.php';
 require_once 'Model/Producto.php';
-require_once 'Model/nit.php';
 
 $objProducto = new Producto();
 $resultado_producto = $objProducto->get();
