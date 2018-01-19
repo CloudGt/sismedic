@@ -81,7 +81,7 @@ $(function(){
 		var nit = $("#nit").val();
 
 		$.ajax({
-			url: 'Controller/ProductoController.php?page=5&&nit='+nit,
+			url: 'Controller/ProductoController.php?page=5&&nit='+nit.toUpperCase(),
 			data: {'nit':nit},
 			type: 'POST',
 			dataType: 'json',

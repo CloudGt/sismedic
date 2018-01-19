@@ -126,25 +126,37 @@ switch($page){
 				else
 				{
 				try {
-					
 					$datos_cliente = $objProducto->ObtenerNit($elnit);
+					//echo $datos_cliente;
+
+					$cuenta = $datos_cliente->rowCount();
 					$cliente = $datos_cliente->fetchObject();
-					$nit = $cliente->NIT;
-					$nombre = $cliente->RazonSocial;
-					$direccion= $cliente->Direccion;
-					if (!empty($nit)) 
-						{
-							$json['msj'] = 'info_nit.php';
-							
-						}else
-						{
-							$json['msj'] = 'nuevo_cliente.php';
-						}
-					$_SESSION['detalle_cliente'][$elnit] = array('nit'=>$elnit, 'nombre'=>$nombre, 'direccion'=>$direccion);
-					$json['success'] = true;
-					echo json_encode($json);
+					if ($cuenta>0){
+						
+						$nit = $cliente->NIT;
+						$nombre = $cliente->RazonSocial;
+						$direccion= $cliente->Direccion;
+						if (!empty($nit)) 
+							{
+								$envial = 1;
+								$json['msj'] = "info_nit.php?idnit=$elnit&redireccion=info_nit.php"; //idnit lo envio por GET Para avisar al nit.php de que nit estoy hablando
+							}
+							if (empty($nit)) {
+								$json['msj'] = "nuevo_cliente.php";
+							}
+						$_SESSION['detalle_cliente'][$elnit] = array('nit'=>$elnit, 'nombre'=>$nombre, 'direccion'=>$direccion);
+						$json['success'] = true;
+						echo json_encode($json);
+					}
+					else{
+						$json['msj'] = "nuevo_cliente.php";
+						$_SESSION['detalle_cliente'][$elnit] = array('nit'=>$elnit, 'nombre'=>'', 'direccion'=>'');
+						$json['success'] = true;
+						echo json_encode($json);
+					}
+
 				} catch (PDOException $e) {
-					$json['msj'] = "Error: ". $e->getMessage();
+					$json['msj'] = "Error: - ". $e->getMessage();
 					$json['success'] = false;
 					echo json_encode($json);
 				}
