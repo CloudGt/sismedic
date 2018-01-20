@@ -49,6 +49,13 @@ class Producto
 		global $cnx;
 		return $cnx->query($sql);
 	}
+	function ObtenerDocumentos($tipodoc)
+	{
+		$sql = "SELECT v.*,LPAD(id, 6, '0') as xdoc, C.RazonSocial AS cliente, TIMESTAMPDIFF(MINUTE, v.FECHAOP, CURRENT_TIMESTAMP()) as hace   FROM venta v inner join cliente c on v.nit_dpi= c.Nit2  WHERE estado = '$tipodoc' order by v.id desc ";
+
+		global $cnx;
+		return $cnx->query($sql);
+	}
 	
 }
 
