@@ -106,33 +106,5 @@ $(function(){
 	});
 
 
-	$("#seleccionadoc").off("click");	
-	$("#seleccionadoc").on("click", function(e) {
-		var nit = $("#nit").val();
-
-		$.ajax({
-			url: 'Controller/ProductoController.php?page=5&&nit='+nit.toUpperCase(),
-			data: {'nit':nit},
-			type: 'POST',
-			dataType: 'json',
-			success: function(data) {
-				if(data.success==true){
-					$("#nit").val('');
-					alertify.success(data.msj);
-					
-					//setTimeout(function(){
-					  $("#infocliente").load(data.msj);
-					//}, 1000); 
-				}else{
-					alertify.error(data.msj);
-				}
-			},
-			error: function(jqXHR, textStatus, error) {
-				alertify.error('error ajax' + error);
-				
-			}
-		});	
-				
-	});
-
+	
 });

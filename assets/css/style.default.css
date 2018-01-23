@@ -769,10 +769,10 @@ section.dashboard-header li {
     background: none;
     border: none;
     padding: 0;
-    margin-bottom: 40px;
+    /* margin-bottom: 40px; */
   }
   section.dashboard-header div[class*='col-'] {
-    margin-bottom: 40px;
+    /*margin-bottom: 40px; */
   }
   section.dashboard-header div[class*='col-'] .wrapper {
     background: #fff;
@@ -895,7 +895,7 @@ section.statistics .user-activity .page-statistics strong {
     padding-top: 0;
   }
   section.statistics div[class*='col-'] .wrapper {
-    margin-bottom: 40px;
+    /*margin-bottom: 40px; */
   }
   section.statistics div[class*='col-']:last-of-type .wrapper {
     margin-bottom: 0;
@@ -908,7 +908,7 @@ section.statistics .user-activity .page-statistics strong {
 @media (max-width: 991px) {
   section.statistics div[class*='col-'] .wrapper {
     height: auto;
-    margin-bottom: 40px;
+    /* margin-bottom: 40px; */
   }
   section.statistics div[class*='col-']:last-of-type .wrapper {
     margin-bottom: 0;
@@ -1136,7 +1136,7 @@ section.updates .activities .content strong {
 /* FEEDS MEDIAQUERIES ------------------------- */
 @media (max-width: 1091px) {
   section.updates div[class*='col-'] .wrapper {
-    margin-bottom: 40px;
+    /* margin-bottom: 40px; */
   }
 }
 
