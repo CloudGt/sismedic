@@ -1,9 +1,6 @@
 <?php 
 
 $server = "localhost";
-$user = "u161321994_123";
-$password = "12141618";
-$db = "u161321994_123";
 $user = "root";
 $password = "";
 $db = "sismedicgt";

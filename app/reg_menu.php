@@ -34,14 +34,49 @@ $resultado_producto = $objProducto->get();
 		<div class="row">
 			<div class="col-md-12">
 				<div class="row">
-					
-					<div class="col-12 col-sm-12 col-md-12 form-inline mb-3">
-
-						<input type="text" name="nit" placeholder="Nit" id="nit" class="form-control col-2 col-sm-2 col-md-2 mr-1">
+					<style type="text/css">
+					/*Cf, new user, info*/
+					.lk1{
+						margin-left: -1rem;
+					}
+					@media (max-width: 575px) {
+					  .mix{
+					  	margin-left: -2rem;
+					  }
+					  .input_nit{
+						  	margin-top: 2rem;
+						  }
+					}
+					@media (min-width: 576px) and (max-width: 767px) {
+					  .mix{
+					  	margin-left: -1rem;
+					  }
+					   .input_nit{
+						  	margin-top: 2rem;
+						  }
+					}
+					@media (min-width: 768px) and (max-width: 991px) {
+					  .mix{
+					  	margin-left: -1rem;
+					  }
+					  .input_nit{
+						  	margin-top: 2rem;
+						  }
+					}
+					@media (min-width: 992px) {
+					  .mix{
+					  	margin-left: -1rem;
+					  }
+					  .input_nit{
+					  }
+					}
+					/**/
+					</style>
+					<div class="col-xs-12 col-sm-12 col-md-12 form-inline mb-3 input_nit">
+						<input type="text" name="nit" placeholder="Nit" id="nit" class="form-control col-xs-9 col-sm-9 col-md-9 col-lg-2">
 						<button id ="btn_verificanit" class="btn btn-success"  name="btn_verificanit">Agregar</button>
-						
 						<!-- div donde se carga la informacion del cliente encontrado o CF-->
-						<div id= "infocliente" class ="col-12 col-sm-12 col-md-12" >
+						<div id= "infocliente" class ="col-xs-12 col-sm-9 col-md-9">
 
 						</div>
 					</div>

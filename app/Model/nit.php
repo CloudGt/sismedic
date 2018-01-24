@@ -21,5 +21,8 @@ if (isset($_GET['idnit'])) {
 
 	}
 }
+if (isset($_GET['nonit'])) {
+	$nonit = $_GET['nonit'];
+}
 
  ?>

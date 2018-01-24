@@ -24,9 +24,7 @@ function protecVars($str)
 			$str =addslashes($str);
 			$str= htmlspecialchars($str);
 			return $str;
-
 		}
-
 foreach($_POST as $param => $value)
 		{
 			$_POST[$param]= protecVars($value);
@@ -35,7 +33,6 @@ foreach($_GET as $param => $value)
 	{
 		$_GET[$param]= protecVars($value);
 	}
-
 if (isset ($_POST['username']) && isset ($_POST['password']))
 {
 	$u=$_POST['username'];
@@ -51,22 +48,18 @@ while( $row = mysqli_fetch_array( $GetUser)) {
 	$ususs=$row["USUARIO"];
 	$nom1=$row["NOMBRE"];
 	$apep=$row["ACTIVO"];
-
 }
 if(empty($u) && empty($p))
 {
 	echo "los datos estan vacios";
-
 }
 elseif($id=='')
 {
 	echo "El usuario no existe o la contraseña es incorecta";
 	$fail=true;
 }
-
 if($fail==false)
 {	
-
 	if($id>0)
 	{
 		$_SESSION['expire'] = $_SESSION['start'] + (5 * 60);
@@ -80,11 +73,7 @@ if($fail==false)
 		$_SESSION['apellidop']=$apep;
 	}
 }
-
-
 }
-
-
  if(isset($_SESSION['username']) && isset($_SESSION['password']) )
  {
  	$su=$_SESSION['username'];
@@ -106,19 +95,14 @@ if($fail==false)
  	$_SESSION['usern']=$id;
  } //while
  if($dd>0)
-
  {
  	$_SESSION['usern']=$lml=$jd;
-
  	define('user',true); 
-
  }
  }
-
  else {
  	define ('user',false);
  }
-
 /*if ($_GET['action'] =='exit')
 {
 	session_destroy();

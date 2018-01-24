@@ -6,13 +6,9 @@ if(isset($_GET["page"])){
 }else{
 	$page=0;
 }
-
-
 require_once '../Config/conexion.php';
 require_once '../Model/Producto.php';
-
 switch($page){
-
 	case 1:
 		$objProducto = new Producto();
 		$json = array();
@@ -32,9 +28,7 @@ switch($page){
 				$subtotal = $cantidad * $precio;
 				
 				$_SESSION['detalle'][$producto_id] = array('id'=>$producto_id, 'producto'=>$descripcion, 'cantidad'=>$cantidad, 'precio'=>$precio, 'subtotal'=>$subtotal);
-
 				$json['success'] = true;
-
 				echo json_encode($json);
 	
 			} catch (PDOException $e) {
@@ -48,7 +42,6 @@ switch($page){
 			echo json_encode($json);
 		}
 		brvaeak;
-
 	case 2:
 		$json = array();
 		$json['msj'] = 'Producto Eliminado';
@@ -116,7 +109,7 @@ switch($page){
 		$json['success'] = true;
 		if (isset($_GET['tipodoc'])){
 			$elnit = $_GET['nit'];
-			if ($elnit=="CF")
+			if ($elnit=="CF" or $elnit =="cf")
 				{
 					$json['msj'] = 'cf.php';
 					$_SESSION['detalle_cliente'][$elnit] = array('nit'=>$elnit, 'nombre'=>'Consumidor Final', 'direccion'=>'Ciudad');
@@ -128,7 +121,6 @@ switch($page){
 				try {
 					$datos_cliente = $objProducto->ObtenerNit($elnit);
 					//echo $datos_cliente;
-
 					$cuenta = $datos_cliente->rowCount();
 					$cliente = $datos_cliente->fetchObject();
 					if ($cuenta>0){
@@ -154,7 +146,6 @@ switch($page){
 						$json['success'] = true;
 						echo json_encode($json);
 					}
-
 				} catch (PDOException $e) {
 					$json['msj'] = "Error: - ". $e->getMessage();
 					$json['success'] = false;
@@ -167,8 +158,6 @@ switch($page){
 			echo json_encode($json);
 		}
 		break;
-
-
 	case 5:
 		$objProducto = new Producto();
 		$json = array();
@@ -176,7 +165,7 @@ switch($page){
 		$json['success'] = true;
 		if (isset($_GET['nit'])){
 			$elnit = $_GET['nit'];
-			if ($elnit=="CF")
+			if ($elnit=="CF" or $elnit =="cf")
 				{
 					$json['msj'] = 'cf.php';
 					$_SESSION['detalle_cliente'][$elnit] = array('nit'=>$elnit, 'nombre'=>'Consumidor Final', 'direccion'=>'Ciudad');
@@ -188,7 +177,6 @@ switch($page){
 				try {
 					$datos_cliente = $objProducto->ObtenerNit($elnit);
 					//echo $datos_cliente;
-
 					$cuenta = $datos_cliente->rowCount();
 					$cliente = $datos_cliente->fetchObject();
 					if ($cuenta>0){
@@ -209,12 +197,11 @@ switch($page){
 						echo json_encode($json);
 					}
 					else{
-						$json['msj'] = "nuevo_cliente.php";
+						$json['msj'] = "nuevo_cliente.php?nonit=$elnit";
 						$_SESSION['detalle_cliente'][$elnit] = array('nit'=>$elnit, 'nombre'=>'', 'direccion'=>'');
 						$json['success'] = true;
 						echo json_encode($json);
 					}
-
 				} catch (PDOException $e) {
 					$json['msj'] = "Error: - ". $e->getMessage();
 					$json['success'] = false;
@@ -227,9 +214,5 @@ switch($page){
 			echo json_encode($json);
 		}
 		break;
-
 }
 ?>
-
-
-
