@@ -1,18 +1,3 @@
-<?php 
-@session_start();
-?>
-
-<?php
-if(isset($_GET["tipo_doc"])){
-  $tipo_doc=$_GET["tipo_doc"];
-  }else{
-    $tipo_doc='D';
-  }
-
-  ?>
-
-
-
 <STYLE TYPE="text/css" >
 
 input[type=checkbox], input[type=radio] {
@@ -34,10 +19,19 @@ div[class*='col-'] {
 <!-- Header -->
 
   <div class="row header" style="margin-top: 5px">
-  <div class="alert alert-primary col-md-4" role="alert" style="margin-bottom: 5px">
+  <div class="alert alert-primary col-md-4" role="alert">
   DOCUMENTO: # 4750
   </div>
     <div class="col-md-12">
+      <div class="input-group input-group-sm ">
+        <span class="input-group-addon">
+          42
+        </span>
+        <input type="text" class="form-control input-lg" value="Prod 1" disabled>
+        <span class="input-group-addon">
+          <input class= "lista" type="checkbox">
+        </span>
+      </div>
       <div class="input-group input-group-sm">
        <span class="input-group-addon">
           452
@@ -82,4 +76,3 @@ div[class*='col-'] {
     </div>
   </div>
 </div>
-
