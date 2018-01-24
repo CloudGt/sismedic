@@ -41,7 +41,7 @@ switch($page){
 			$json['success'] = false;
 			echo json_encode($json);
 		}
-		brvaeak;
+		break;
 	case 2:
 		$json = array();
 		$json['msj'] = 'Producto Eliminado';
