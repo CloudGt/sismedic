@@ -1,1 +1,37 @@
-/* your styles go here */
+					/*Cf, new user, info*/
+					.lk1{
+						margin-left: -1rem;
+					}
+					@media (max-width: 575px) {
+					  .mix{
+					  	margin-left: -2rem;
+					  }
+					  .input_nit{
+						  	margin-top: 2rem;
+						  }
+					}
+					@media (min-width: 576px) and (max-width: 767px) {
+					  .mix{
+					  	margin-left: -1rem;
+					  }
+					   .input_nit{
+						  	margin-top: 2rem;
+						  }
+					}
+					@media (min-width: 768px) and (max-width: 991px) {
+					  .mix{
+					  	margin-left: -1rem;
+					  }
+					  .input_nit{
+						  	margin-top: 2rem;
+						  }
+					}
+					@media (min-width: 992px) {
+					  .mix{
+					  	margin-left: -1rem;
+					  }
+					  .input_nit{
+					  }
+					}
+					/**/
+					
