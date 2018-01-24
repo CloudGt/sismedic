@@ -1,16 +1,17 @@
-<?php echo "HOLA MUNDO";
-
-
-
-
-
-
-
-require_once 'Config/conexion.php';
+<?php 
+@session_start();
+?>
+<?php
+if(isset($_GET["tipo_doc"])){
+  $tipo_doc=$_GET["tipo_doc"];
+  }else{
+    $tipo_doc='D';
+  }
+  require_once 'Config/conexion.php';
   require_once 'Model/Producto.php';
   $objProducto = new Producto();
   $documentos = $objProducto->ObtenerDocumentos($tipo_doc);
-  $cuenta = $documentos->rowCount();
+  //$cuenta = $documentos->rowCount();
   $documento = $documentos->fetchObject();
   foreach ($documentos as $documento) {
       $id = $documento['id'];
@@ -21,16 +22,20 @@ require_once 'Config/conexion.php';
       $cliente = $documento['cliente'];
       $fechaop = $documento['FECHAOP'];
       $hace= $documento['hace'];
+     // $nombre = $nombre." ".$apellido;
+      echo '<div class="alert alert-success seleccionadoc" role="alert" id= '.$id.'>
+              <h4 class="alert-heading">Orden # '.$xdoc.'</h4>
+              <p>'.$cliente.'.</p>
+              <p class="mb-0 seleccionadoc">Hace:  '.$hace.' Minutos</p>
+            </div>';
+    }
+?>
 
-
-
-
-echo "HOLA MUNDO";
-
-
-
-
-
-
-
- ?>
+ <script type="text/javascript">
+$(document).ready(function(){
+  $('body').on('click', '.seleccionadoc', function(){
+    var xid = $(this).attr("id");
+    $("#contenidos").load('Despachos.php?doc='+xid);
+  })
+})
+ </script>
