@@ -2,7 +2,6 @@
 $dato = 0; //no se ha creado nada
 if (isset($_GET['idnit'])) {
 	$nit = $_GET['idnit'];
-	$redireccion = $_GET['redireccion'];
 	if (!empty($nit)) {
 		require('Config/conexion.php');
 		$muestra = $cnx->query("SELECT * FROM cliente WHERE NIT = $nit");
