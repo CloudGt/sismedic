@@ -13,28 +13,22 @@ if(isset($_GET["doc"])){
       ");
   echo'
   <STYLE TYPE="text/css" >
-
   input[type=checkbox], input[type=radio] {
       box-sizing: border-box;
       padding: 0;
       -webkit-transform: scale(2);
   }
-
   .input-group {
        margin-top: 12px;
   }
-
   div[class*="col-""] {
       margin-bottom: 2px;
   }
   </STYLE>
   ';
-
-
   echo'
   <div class="container ">
   <!-- Header -->
-
     <div class="row header" style="margin-top: 5px">
     <div class="alert alert-primary col-md-4" role="alert"> Documento #'.
       $xiddoc
@@ -72,26 +66,11 @@ if(isset($_GET["doc"])){
           Enviar a revisión
         </button>
       </div>
-
     </div>
   </div>';
-
-
-
-
-
-
-
-
-
 }else{
   $xiddoc=0;
   echo '<h1>No se recibio documento</h1>';
-
-
-
-
 }
 require_once 'Config/conexion.php';
-
 ?>
