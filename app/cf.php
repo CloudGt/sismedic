@@ -6,3 +6,4 @@
 		<input type="text" name="ciudad" placeholder="Guatemala" class="form-control">
 	</div>
 </div>
+<!--Probando HitHub-->
