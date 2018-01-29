@@ -5,6 +5,7 @@ $error = 0;
 $info = $cnx->query("SELECT * FROM proveedores");
 function tabla($x){
 	foreach ($x as $xx) {
+		$idprov = $xx['idprov'];
 		$nombre = $xx['nombre'];
 		$direccion = $xx['direccion'];
 		$telefono = $xx['telefono'];
@@ -38,21 +39,12 @@ function tabla($x){
 			<th>$nota	</th>
 			<th>$estado	</th>
 			<th>$p_fecha	</th>
-			<th><button type='button' class='btn btn-primary' data-toggle='modal' data-target='#viewproveedor'>Editar</button></th>
+			<th><button type='button' class='btn btn-primary' data-toggle='modal' data-target='#viewproveedor' name='$idprov'>Editar</button></th>
 			</tr>
 		";
 
 	}
 }
-
-
-
-
-
-
-
-
-
 	if (isset($_POST['new'])) 
 	{
 		function limpiar($x){$x = trim($x);$x = htmlspecialchars($x);$x = stripcslashes($x);return $x;}
@@ -77,11 +69,25 @@ function tabla($x){
 		}if ($error == 1) {
 			echo "Error con los datos.";
 		}
-		
-
-	}else{
-		//error
 	}
-
-
+	/*NOTA NOTA NOTA NOTA NOTA*/
+/*NECESITO QUE SE MUESTREN ESTOS DATOS, AL IGUAL QUE EL BOTON NECESITO QUE AL DARLE GUARDAR SE GUARDE SIN RECARGAR*/
+	if (isset($_GET['change'])) {
+		$id_p = $_GET['idprov'];
+		$extrae = $cnx->query('SELECT * FROM proveedores WHERE id = $id_p');
+			function change($x){
+				foreach ($x as $xx) {
+				$nombre = $xx['nombre'];
+				$direccion = $xx['direccion'];
+				$telefono = $xx['telefono'];
+				$credito = $xx['credito'];
+				$dias_credito = $xx['dias_credito'];
+				$nit = $xx['nit'];
+				$pais =  $xx['pais'];
+				$nota = $xx['nota'];
+				$estado = $xx['activo'];
+				$p_fecha = $xx['fechaop'];
+			}
+		}
+	}
  ?>
