@@ -58,8 +58,7 @@ else
         </div>
         <div class="main-menu">
           <ul id="side-main-menu" class="side-menu list-unstyled">                  
-            <li class="active"><a href="index.html"> <i class="icon-home"></i><span>Home</span></a></li>
-            <li> <a href="login.html"> <i class="icon-interface-windows"></i><span>Login page</span></a></li>
+            <li class="active"><a href="#"> <i class="icon-home"></i><span>Principal</span></a></li>
           </ul>
         </div>
         <div class="admin-menu">
