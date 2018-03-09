@@ -70,7 +70,12 @@ function tabla($x){
 			$guardar = $cnx->query("INSERT INTO `proveedores` (`idprov`, `nombre`, `direccion`, `telefono`, `credito`, `dias_credito`, `nit`, `pais`, `nota`, `activo`) VALUES (NULL, '$nombre', '$direccion', '$telefono', '$credito', '$dias_credito', '$nit', '$pais', '$nota', '$estado');");
 			if ($guardar == true) 
 			{
-				header("Location: principal.php");
+				//header("Location: principal.php");
+				
+				echo '
+				<script type="text/javascript">
+				$("#contenidos").load("manejo_prov.php");
+				<script>';
 			}else{
 				echo "Error al guardar el dato.";
 			}

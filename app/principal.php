@@ -209,6 +209,8 @@ else
     <script src="../assets/js/grasp_mobile_progress_circle-1.0.0.min.js"></script>
     <script src="../assets/vendor/jquery-validation/jquery.validate.min.js"></script>
     <script src="../assets/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.css">
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.js"></script>
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script> 
     <script src="../assets/js/charts-home.js"></script> -->
     <script src="../assets/js/front.js"></script>

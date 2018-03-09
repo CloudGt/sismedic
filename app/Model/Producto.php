@@ -56,6 +56,14 @@ class Producto
 		global $cnx;
 		return $cnx->query($sql);
 	}
+		function ObtenerEXISTENCIAS()
+	{
+		$sql = "--";
+
+		global $cnx;
+		return $cnx->query($sql);
+	}
+	
 	
 }
 
