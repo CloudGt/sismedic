@@ -56,14 +56,22 @@ class Producto
 		global $cnx;
 		return $cnx->query($sql);
 	}
-		function ObtenerEXISTENCIAS()
+	function ObtenerEXISTENCIAS()
 	{
 		$sql = "--";
 
 		global $cnx;
 		return $cnx->query($sql);
 	}
-	
+
+	function guardarproducto($descripcion, $precio, $idprov, $idpresentacion, $tipomedicamento, $afecto,$precioa,$preciob,$precioc,$preciod,$precioe,$preciof)
+	{
+		$sql = "INSERT INTO producto (descripcion, precio, idprov, idpresentacion, tipomedicamento, afecto) VALUES ('$descripcion', $precio, $idprov, $idpresentacion, $tipomedicamento, $afecto)";		
+		global $cnx;
+		return $cnx->query($sql);
+	}
+
+
 	
 }
 

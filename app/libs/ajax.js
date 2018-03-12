@@ -105,4 +105,40 @@ $(function(){
 				
 	});
 
+	$("#btn_guardarprod").off("click");	
+	$("#btn_guardarprod").on("click", function(e) {
+		var descripcion  = $("#descripcion").val();
+		var precio = $("#precio").val();
+		var idprov = $("#idprov").val();
+		var idpresentacion = $("#idpresentacion").val();
+		var tipomedicamento = $("#tipomedicamento").val();
+		var afecto = $("#afecto").val();
+		var precioa = $("#precioa").val();
+		var preciob = $("#preciob").val();
+		var precioc = $("#precioc").val();
+		var preciod = $("#preciod").val();
+		var precioe = $("#precioe").val();
+		var preciof = $("#preciof").val();
+		
+		$.ajax({
+			url: 'Controller/ProductoController.php?page=6&&descripcion='+descripcion+'&&precio='+precio+'&&idprov='+idprov+'&&idpresentacion='+idpresentacion+'&&tipomedicamento='+tipomedicamento+'&&afecto='+afecto+'&&precioa='+precioa+'&&preciob='+preciob+'&&precioc='+precioc+'&&preciod='+preciod+'&&precioe='+precioe+'&&preciof='+preciof,
+			type: 'POST',
+			dataType: 'json',
+			success: function(data) {
+				if(data.success==true){
+ 						alertify.success(data.msj);
+						$("#infocliente").load(data.msj);
+				}else{
+					alertify.error(data.msj);
+				}
+			},
+			error: function(jqXHR, textStatus, error) {
+				alertify.error('error ajax' + error);
+				
+			}
+		});	
+				
+	});
+
+
 });

@@ -214,5 +214,36 @@ switch($page){
 			echo json_encode($json);
 		}
 		break;
+
+	case 6:
+		$objProducto = new Producto();
+		$json = array();
+		$json['msj'] = 'Guardado correctamente';
+		$json['success'] = true;
+		
+		try {
+			
+			$descripcion= $_GET['descripcion'];
+			$idprov= $_GET['idprov'];
+			$idpresentacion= $_GET['idpresentacion'];
+			$tipomedicamento= $_GET['tipomedicamento'];
+			$afecto = $_GET['afecto'];
+			$precio =$_GET['precio'];
+			$precioa =$_GET['precioa'];
+			$preciob =$_GET['preciob'];
+			$precioc =$_GET['precioc'];
+			$preciod =$_GET['preciod'];
+			$precioe =$_GET['precioe'];
+			$preciof =$_GET['preciof'];
+			$objProducto->guardarproducto($descripcion, $precio, $idprov, $idpresentacion, $tipomedicamento, $afecto,$precioa,$preciob,$precioc,$preciod,$precioe,$preciof);
+			$json['success'] = true;
+			$json['msj'] = 'Guardado correctamente: ';
+			echo json_encode($json);
+		} catch (PDOException $e) {
+			$json['msj'] = $e->getMessage();
+			$json['success'] = false;
+			echo json_encode($json);
+		}
+		break;
 }
 ?>
