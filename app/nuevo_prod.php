@@ -4,12 +4,11 @@
 
   require_once 'Config/conexion.php';
   require_once 'Model/Producto.php';
-  require_once 'Model/nit.php';
+  require_once 'Model/newproducto.php';
 
   $objProducto = new Producto();
   $resultado_producto = $objProducto->get();
   ?>
-
 <html lang="es">
   <head>
     <title>Carrito de Compras</title>

@@ -44,15 +44,6 @@ function tabla($x){
 
 	}
 }
-
-
-
-
-
-
-
-
-
 	if (isset($_POST['new'])) 
 	{
 		function limpiar($x){$x = trim($x);$x = htmlspecialchars($x);$x = stripcslashes($x);return $x;}
@@ -71,7 +62,6 @@ function tabla($x){
 			if ($guardar == true) 
 			{
 				//header("Location: principal.php");
-				
 				echo '
 				<script type="text/javascript">
 				$("#contenidos").load("manejo_prov.php");
@@ -82,8 +72,6 @@ function tabla($x){
 		}if ($error == 1) {
 			echo "Error con los datos.";
 		}
-		
-
 	}else{
 		//error
 	}
