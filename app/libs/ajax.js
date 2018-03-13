@@ -122,6 +122,7 @@ $(function(){
 		
 		$.ajax({
 			url: 'Controller/ProductoController.php?page=6&&descripcion='+descripcion+'&&precio='+precio+'&&idprov='+idprov+'&&idpresentacion='+idpresentacion+'&&tipomedicamento='+tipomedicamento+'&&afecto='+afecto+'&&precioa='+precioa+'&&preciob='+preciob+'&&precioc='+precioc+'&&preciod='+preciod+'&&precioe='+precioe+'&&preciof='+preciof,
+			data: {'descripcion':descripcion, 'precio':precio, 'idprov':idprov, 'idpresentacion':idpresentacion, 'tipomedicamento':tipomedicamento, 'afecto':afecto, 'precioa':precioa, 'preciob':preciob, 'precioc':precioc, 'preciod':preciod, 'precioe':precioe, 'preciof':preciof},
 			type: 'POST',
 			dataType: 'json',
 			success: function(data) {

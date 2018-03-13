@@ -220,9 +220,7 @@ switch($page){
 		$json = array();
 		$json['msj'] = 'Guardado correctamente';
 		$json['success'] = true;
-		
 		try {
-			
 			$descripcion= $_GET['descripcion'];
 			$idprov= $_GET['idprov'];
 			$idpresentacion= $_GET['idpresentacion'];
