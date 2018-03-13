@@ -20,110 +20,78 @@
     <script src="libs/js/alertify/lib/alertify.min.js"></script>
   </head>
 <body>
-
-
-
-<form class="form-horizontal" role="form" data-toggle="validator">
+<div class="container">
+<form class="form-horizontal" role="form" data-toggle="validator" method="GET">
 <fieldset>
-
 <!-- Form Name -->
 <legend>Nuevo Producto</legend>
-
 <!-- Select Basic -->
 <div class="form-group">
   <label class="col-md-4 control-label" for="idpresentacion">Presentación</label>
   <div class="col-md-8">
     <select id="idpresentacion" name="idpresentacion" class="form-control">
-      <option value="1">Presentacion 1</option>
-      <option value="2">Presentacion 2</option>
+      <?php presentacion($present); ?>
     </select>
   </div>
 </div>
-
 <!-- Text input-->
 <div class="form-group">
   <label class="col-md-4 control-label" for="descripcion">Ingrese Nombre de producto</label>  
   <div class="col-md-8">
   <input id="descripcion" name="descripcion" type="text" placeholder="" class="form-control input-md" required>
-    
   </div>
 </div>
-
 <!-- Select Basic -->
 <div class="form-group">
   <label class="col-md-4 control-label" for="idprov">Seleccione Proveedor</label>
   <div class="col-md-8">
     <select id="idprov" name="idprov" class="form-control">
-      <option value="1">Prov 1</option>
-      <option value="2">Prov 2</option>
+      <?php proveedores($provv); ?>
     </select>
   </div>
 </div>
-
 <!-- Select Basic -->
 <div class="form-group">
-  <label class="col-md-4 control-label" for="tipomedicamento">Venta</label>
+  <label class="col-md-4 control-label" for="tipomedicamento">Tipo de medicamento</label>
   <div class="col-md-4">
     <select id="tipomedicamento" name="tipomedicamento" class="form-control">
-      <option value="1">Etico</option>
-      <option value="2">Popular</option>
-      <option value="3">Leches</option>
-      <option value="4">Genericos</option>
+      <?php tipomedicamento($tipo_medic); ?>
     </select>
   </div>
 </div>
-
 <!-- Prepended text-->
-<div class="form-group">
-  <div class="col-md-4">
-    <div class="input-group">
+<div class="row">
+  <div class="form-inline col-md-12">
+       <div class="input-group col-sm-12 col-md-3">
       <span class="input-group-addon">Costo</span>
       <input id="precio" name="precio" class="form-control" placeholder="0.00" type="text">
     </div>
-  </div>
-  <div class="col-md-4">
-    <div class="input-group">
+    <div class="input-group col-sm-12 col-md-3">
       <span class="input-group-addon">A</span>
       <input id="precioa" name="precioa" class="form-control" placeholder="0.00" type="text">
     </div>
-  </div>
-
-  <div class="col-md-4">
-    <div class="input-group">
+    <div class="input-group col-sm-12 col-md-3">
       <span class="input-group-addon">B</span>
       <input id="preciob" name="preciob" class="form-control" placeholder="0.00" type="text">
     </div>
-  </div>
-
-  <div class="">
-    <div class="input-group">
+    <div class="input-group col-sm-12 col-md-3">
       <span class="input-group-addon">C</span>
       <input id="precioc" name="precioc" class="form-control" placeholder="0.00" type="text">
     </div>
-  </div>
-
-
-  <div class="col-md-4">
-    <div class="input-group">
+    <div class="input-group col-sm-12 col-md-3">
       <span class="input-group-addon">D</span>
       <input id="preciod" name="preciod" class="form-control" placeholder="0.00" type="text">
     </div>
-  </div>
-  <div class="col-md-4">
-    <div class="input-group">
+    <div class="input-group col-sm-12 col-md-3">
       <span class="input-group-addon">E</span>
       <input id="precioe" name="precioe" class="form-control" placeholder="0.00" type="text">
     </div>
-  </div>
-  <div class="col-md-4">
-    <div class="input-group">
+    <div class="input-group col-sm-12 col-md-3">
       <span class="input-group-addon">F</span>
       <input id="preciof" name="preciof" class="form-control" placeholder="0.00" type="text">
     </div>
   </div>
-
 </div>
-
 <!-- Multiple Radios -->
 <div class="form-group">
   <label class="col-md-4 control-label" for="afecto">IVA</label>
@@ -142,13 +110,12 @@
     </div>
   </div>
 </div>
-
 </fieldset>
-
 </form>
-
 <div class="col-xs-12 col-sm-12 col-md-12 form-inline mb-3">
   <button id ="btn_guardarprod" class="btn btn-success"  name="btn_guardarprod">Guardar</button>
 </div>
+</div>
+
 </body>
 </html>
