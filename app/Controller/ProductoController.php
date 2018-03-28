@@ -298,6 +298,34 @@ switch($page){
 			echo json_encode($json);
 		}
 		break;
+		case 9:
+		$objProducto = new Producto();
+		$json = array();
+		$json['msj'] = 'Guardado correctamente';
+		$json['success'] = true;
+		try {
+			$idupdate = $_GET['idupdate'];
+			$lote =$_GET['lote'];
+			$fechavence =$_GET['fechavence'];
+			$fechaingreso = $_GET['fechaingreso'];
+			$documento =$_GET['documento'];
+			$idproducto= $_GET['idproducto'];
+			$cantidad= $_GET['cantidad'];
+			$usuario =$_GET['usuario'];
+			$serie_fac =$_GET['serie_fac'];
+			$id_proveedor= $_GET['id_proveedor'];
+			$id_bodega =$_GET['id_bodega'];
+			$preciounitario =$_GET['preciounitario'];
+			$objProducto->addproductoupdate($lote, $fechavence, $fechaingreso, $documento, $idproducto, $cantidad, $usuario, $serie_fac, $id_proveedor, $id_bodega, $preciounitario, $idupdate);
+			$json['success'] = true;
+			$json['msj'] = 'Actualizado correctamente: ';
+			echo json_encode($json);
+		} catch (PDOException $e) {
+			$json['msj'] = $e->getMessage();
+			$json['success'] = false;
+			echo json_encode($json);
+		}
+		break;
 		
 }
 ?>

@@ -93,6 +93,12 @@ class Producto
 		global $cnx;
 		return $cnx->query($sql);
 	}
+	function addproductoupdate($lote, $fechavence, $fechaingreso, $documento, $idproducto, $cantidad, $usuario, $serie_fac, $id_proveedor, $id_bodega, $preciounitario, $idupdate)
+	{
+		$sql = "UPDATE `lotes_kardex` SET `lote` = '$lote', `fechavence` = '$fechavence', `fechaingreso` = '$fechaingreso', `documento` = '$documento', `idproducto` = '$idproducto', `cantidad` = '$cantidad', `usuario` = '$usuario', `serie_fac` = '$serie_fac', `idproveedor` = '$id_proveedor', `id_bodega` = '$id_bodega', `preciounitario` = '$preciounitario' WHERE `lotes_kardex`.`id` = '$idupdate'";
+		global $cnx;
+		return $cnx->query($sql);
+	}
 	
 }
 
