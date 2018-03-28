@@ -67,7 +67,7 @@ class Producto
 	function guardarproducto($descripcion, $precio, $idprov, $idpresentacion, $tipomedicamento, $afecto,$precioa,$preciob,$precioc,$preciod,$precioe,$preciof)
 	{
 		/*$sql = "INSERT INTO producto (descripcion, precio, idprov, idpresentacion, tipomedicamento, afecto) VALUES ($descripcion, $precio, $idprov, $idpresentacion, $tipomedicamento, $afecto)";		*/
-		$sql = "INSERT INTO `producto` (`id`, `descripcion`, `precio`, `idprov`, `idpresentacion`, `tipomedicamento`, `afecto`) VALUES (NULL, '$descripcion', '$precio', '$idprov', '$idpresentacion', '$tipomedicamento', '$afecto')";
+		$sql = "INSERT INTO `producto` (`id`, `descripcion`, `precio`, `precioa`, `preciob`, `precioc`, `preciod`, `precioe`, `preciof`, `idprov`, `idpresentacion`, `tipomedicamento`, `afecto`) VALUES (NULL, '$descripcion', '$precio', '$precioa', '$preciob', '$precioc', '$preciod', '$precioe', '$preciof', '$idprov', '$idpresentacion', '$tipomedicamento', '$afecto')";
 		global $cnx;
 		return $cnx->query($sql);
 	}
