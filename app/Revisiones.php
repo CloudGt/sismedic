@@ -5,7 +5,7 @@
 if(isset($_GET["tipo_doc"])){
   $tipo_doc=$_GET["tipo_doc"];
   }else{
-    $tipo_doc='D';
+    $tipo_doc='DSP';
   }
   require_once 'Config/conexion.php';
   require_once 'Model/Producto.php';

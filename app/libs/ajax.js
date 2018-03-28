@@ -140,6 +140,36 @@ $(function(){
 		});	
 				
 	});
+// actualizar estatusproducto
+	$("#chkproducto").off("click");
+	$("#chkproducto").on("click", function(e) {
+		var iddetalle = $(this).attr("value");
+		var estado = $(this).attr("estado");
+		var valor = $(this).attr("checked");
+		alertify.success(iddetalle);
+		$.ajax({
+			url: 'Controller/ProductoController.php?page=7&&iddetalle='+iddetalle+'&&estado='+estado+'&&valor'+valor,
+			type: 'post',
+			dataType: 'json',
+			success: function(data) {
+				if(data.success==true){
+					
+					alertify.success(data.msj);
+					//$(".detalle-producto").load('doc_guardado.php?xdoc=2');
+					setTimeout(function(){
+					  //window.location.href = 'impresion.php?id='+data.idventa;
+					 // $(".detalle-producto").load('detalle.php');
+					}, 3000);
+				}else{
+					alertify.error(data.msj);
+				}
+			},
+			error: function(jqXHR, textStatus, error) {
+				alertify.error(error);
+			}
+		});				
+	});
+
 
 
 });
