@@ -1,16 +1,41 @@
 <?php
+
+
 session_start();
 if(isset($_GET["doc"])){
   $xiddoc=$_GET["doc"];
-  require('Config/conexion.php');
+    require_once 'Config/conexion.php';
+    require_once 'Model/Producto.php';
+    require_once 'Model/nit.php';
     $detalle = $cnx->query("
-        SELECT d.id, d.idventa, d.idproducto,p.descripcion,d.cantidad, d.precio,d.subtotal,d.estado, 
-        d.chk_despacho,d.chk_revision
+        SELECT distinct d.id, d.idventa, d.idproducto,p.descripcion,d.cantidad, d.precio,d.subtotal,d.estado, 
+        d.chk_despacho,d.chk_revision, v.estado
         FROM venta_detalle d
         INNER JOIN producto p on d.idproducto= p.id 
+        INNER JOIN VENTA V ON d.idventa= v.id 
         where d.idventa= $xiddoc
         ORDER BY idventa ASC 
       ");
+
+  echo '
+
+<html lang="es">
+  <head>
+      <script type="text/javascript" src="libs/ajax.js"></script>  
+   <!-- Alertity -->
+    <link rel="stylesheet" href="libs/js/alertify/themes/alertify.core.css" />
+  <link rel="stylesheet" href="libs/js/alertify/themes/alertify.bootstrap.css" id="toggleCSS" />
+    <script src="libs/js/alertify/lib/alertify.min.js"></script>
+  </head>
+
+  <body>
+
+
+  ';
+
+
+
+
   echo'
   <STYLE TYPE="text/css" >
   input[type=checkbox], input[type=radio] {
@@ -43,6 +68,7 @@ if(isset($_GET["doc"])){
           $cantidad = $prod['cantidad'];
           $despachado = $prod['chk_despacho'];
           $revisado = $prod['chk_revision'];
+          $estado = $prod['estado'];
           
           
       
@@ -53,7 +79,7 @@ if(isset($_GET["doc"])){
             </span>
             <input type="text" class="form-control input-lg" value=" '. $xProd.'" disabled>
             <span class="input-group-addon">
-              <input id= "chkproducto" value= "'.$iddetalle.'"class= "lista" type="checkbox">
+              <input id=  "'.$iddetalle.'" estado= "'.$estado .'" value= "'.$iddetalle.'" class= "chkproducto lista" type="checkbox">
             </span>
           </div>';
         }
@@ -67,7 +93,13 @@ if(isset($_GET["doc"])){
         </button>
       </div>
     </div>
-  </div>';
+  </div>
+  </body>
+</html>
+
+
+  ';
+
 }else{
   $xiddoc=0;
   echo '<h1>No se recibio documento</h1>';

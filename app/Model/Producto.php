@@ -72,7 +72,21 @@ class Producto
 		return $cnx->query($sql);
 	}
 
+	function marcar_detalle_d($iddetalle,$valor)
+	{
+		$sql = "UPDATE venta_detalle SET chk_despacho= $valor where id= $iddetalle" ;
+		global $cnx;
+		return $cnx->query($sql);
+	}
 
+
+	function marcar_detalle_r($iddetalle,$valor)
+	{
+		$sql = "UPDATE venta_detalle SET chk_revision= $valor where id= $iddetalle" ;
+		global $cnx;
+		return $cnx->query($sql);
+	}
+	/*	 */
 	
 }
 

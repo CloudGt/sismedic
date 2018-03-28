@@ -243,5 +243,32 @@ switch($page){
 			echo json_encode($json);
 		}
 		break;
+	case 7:
+		$objProducto = new Producto();
+		$json = array();
+		$json['msj'] = 'Guardado correctamente';
+		$json['success'] = true;
+		try {
+			$iddetalle =$_GET['iddetalle'];
+			$estado =$_GET['estado'];
+			$valor= $_GET['valor'];
+			if ($estado=="DSP"){ 
+				$objProducto->marcar_detalle_d($iddetalle,$valor);
+			}
+			if ($estado=="REV"){ 
+				$objProducto->marcar_detalle_r($iddetalle,$valor);
+			}
+
+
+			
+			$json['success'] = true;
+			$json['msj'] = 'Guardado correctamente: ';
+			echo json_encode($json);
+		} catch (PDOException $e) {
+			$json['msj'] = $e->getMessage();
+			$json['success'] = false;
+			echo json_encode($json);
+		}
+		break;	
 }
 ?>

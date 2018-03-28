@@ -42,10 +42,10 @@
 </div>
 <!-- Select Basic -->
 <div class="form-group">
-  <label class="col-md-4 control-label" for="idprov">Seleccione Proveedor</label>
+  <label class="col-md-4 control-label" for="idprov">Seleccione Casa medica</label>
   <div class="col-md-8">
     <select id="idprov" name="idprov" class="form-control">
-      <?php proveedores($provv); ?>
+      <?php casa_medica($provv); ?>
     </select>
   </div>
 </div>
