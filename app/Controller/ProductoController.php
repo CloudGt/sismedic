@@ -251,7 +251,7 @@ switch($page){
 		try {
 			$iddetalle =$_GET['iddetalle'];
 			$estado =$_GET['estado'];
-			$valor= $_GET['valor']
+			$valor= $_GET['valor'];
 			if ($estado=="DSP"){ 
 				$objProducto->marcar_detalle_d($iddetalle,$valor);
 			}

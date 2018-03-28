@@ -140,13 +140,14 @@ $(function(){
 		});	
 				
 	});
-// actualizar estatusproducto
-	$("#chkproducto").off("click");
-	$("#chkproducto").on("click", function(e) {
+
+	$(".chkproducto").off("click");
+	$(".chkproducto").on("click", function(e) {
+		alertify.success("iddetalle");
 		var iddetalle = $(this).attr("value");
 		var estado = $(this).attr("estado");
 		var valor = $(this).attr("checked");
-		alertify.success(iddetalle);
+		
 		$.ajax({
 			url: 'Controller/ProductoController.php?page=7&&iddetalle='+iddetalle+'&&estado='+estado+'&&valor'+valor,
 			type: 'post',
@@ -169,7 +170,6 @@ $(function(){
 			}
 		});				
 	});
-
 
 
 });
