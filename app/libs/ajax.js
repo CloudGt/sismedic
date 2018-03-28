@@ -173,3 +173,37 @@ $(function(){
 
 
 });
+	$("#btn_addprod").off("click");	
+	$("#btn_addprod").on("click", function(e) {
+		var lote  = $("#lote").val();
+		var fechavence = $("#fechavence").val();
+		var fechaingreso = $("#fechaingreso").val();
+		var documento = $("#documento").val();
+		var idproducto = $("#idproducto").val();
+		var cantidad = $("#cantidad").val();
+		var usuario = $("#usuario").val();
+		var serie_fac = $("#serie_fac").val();
+		var id_proveedor = $("#id_proveedor").val();
+		var id_bodega = $("#id_bodega").val();
+		var preciounitario = $("#preciounitario").val();
+		
+		$.ajax({
+			url: 'Controller/ProductoController.php?page=6&&lote='+lote+'&&fechavence='+fechavence+'&&fechaingreso='+fechaingreso+'&&documento='+documento+'&&idproducto='+idproducto+'&&cantidad='+cantidad+'&&usuario='+usuario+'&&serie_fac='+serie_fac+'&&id_proveedor='+id_proveedor+'&&id_bodega='+id_bodega+'&&preciounitario='+preciounitario,
+			data: {'lote':lote, 'fechavence':fechavence, 'fechaingreso':fechaingreso, 'documento':documento, 'idproducto':idproducto, 'cantidad':cantidad, 'usuario':usuario, 'serie_fac':serie_fac, 'id_proveedor':id_proveedor, 'id_bodega':id_bodega, 'preciounitario':preciounitario},
+			type: 'GET',
+			dataType: 'json',
+			success: function(data) {
+				if(data.success==true){
+ 						alertify.success(data.msj);
+						$("#infocliente").load(data.msj);
+				}else{
+					alertify.error(data.msj);
+				}
+			},
+			error: function(jqXHR, textStatus, error) {
+				alertify.error('error ajax' + error);
+				
+			}
+		});	
+				
+	});

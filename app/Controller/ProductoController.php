@@ -290,7 +290,7 @@ switch($page){
 			$preciounitario =$_GET['preciounitario'];
 			$objProducto->addproducto($lote, $fechavence, $fechaingreso, $documento, $idproducto, $cantidad, $usuario, $serie_fac, $id_proveedor, $id_bodega, $preciounitario);
 			$json['success'] = true;
-			$json['msj'] = 'Guardado correctamente: 123';
+			$json['msj'] = 'Guardado correctamente: ';
 			echo json_encode($json);
 		} catch (PDOException $e) {
 			$json['msj'] = $e->getMessage();

@@ -105,7 +105,7 @@
 </fieldset>
 </form>
 <div class="col-xs-12 col-sm-12 col-md-12 form-inline mb-3">
-  <button id ="btn_guardarprod" class="btn btn-success"  name="btn_guardarprod">Guardar</button>
+  <button id ="btn_addprod" class="btn btn-success"  name="btn_addprod">Guardar</button>
 </div>
 </div>
 </body>
