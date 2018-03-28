@@ -235,7 +235,7 @@ switch($page){
 			$preciof =$_GET['preciof'];
 			$objProducto->guardarproducto($descripcion, $precio, $idprov, $idpresentacion, $tipomedicamento, $afecto,$precioa,$preciob,$precioc,$preciod,$precioe,$preciof);
 			$json['success'] = true;
-			$json['msj'] = 'Guardado correctamente: ';
+			$json['msj'] = 'Guardado correctamente: asfd56';
 			echo json_encode($json);
 		} catch (PDOException $e) {
 			$json['msj'] = $e->getMessage();
@@ -243,6 +243,7 @@ switch($page){
 			echo json_encode($json);
 		}
 		break;
+
 	case 7:
 		$objProducto = new Producto();
 		$json = array();
@@ -270,5 +271,33 @@ switch($page){
 			echo json_encode($json);
 		}
 		break;	
+		case 8:
+		$objProducto = new Producto();
+		$json = array();
+		$json['msj'] = 'Guardado correctamente';
+		$json['success'] = true;
+		try {
+			$lote =$_GET['lote'];
+			$fechavence =$_GET['fechavence'];
+			$fechaingreso = $_GET['fechaingreso'];
+			$documento =$_GET['documento'];
+			$idproducto= $_GET['idproducto'];
+			$cantidad= $_GET['cantidad'];
+			$usuario =$_GET['usuario'];
+			$serie_fac =$_GET['serie_fac'];
+			$id_proveedor= $_GET['id_proveedor'];
+			$id_bodega =$_GET['id_bodega'];
+			$preciounitario =$_GET['preciounitario'];
+			$objProducto->addproducto($lote, $fechavence, $fechaingreso, $documento, $idproducto, $cantidad, $usuario, $serie_fac, $id_proveedor, $id_bodega, $preciounitario);
+			$json['success'] = true;
+			$json['msj'] = 'Guardado correctamente: 123';
+			echo json_encode($json);
+		} catch (PDOException $e) {
+			$json['msj'] = $e->getMessage();
+			$json['success'] = false;
+			echo json_encode($json);
+		}
+		break;
+		
 }
 ?>

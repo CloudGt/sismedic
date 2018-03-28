@@ -87,6 +87,12 @@ class Producto
 		return $cnx->query($sql);
 	}
 	/*	 */
+	function addproducto($lote, $fechavence, $fechaingreso, $documento, $idproducto, $cantidad, $usuario, $serie_fac, $id_proveedor, $id_bodega, $preciounitario)
+	{
+		$sql = "INSERT INTO `lotes_kardex` (`id`, `lote`, `fechavence`, `fechaingreso`, `documento`, `idproducto`, `cantidad`, `usuario`, `serie_fac`, `idproveedor`, `id_bodega`, `preciounitario`) VALUES (NULL, '$lote', '$fechavence', '$fechaingreso', '$documento', '$idproducto', '$cantidad', '$usuario', '$serie_fac', '$id_proveedor', '$id_bodega', '$preciounitario')";
+		global $cnx;
+		return $cnx->query($sql);
+	}
 	
 }
 
