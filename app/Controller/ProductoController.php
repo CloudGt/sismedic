@@ -271,7 +271,7 @@ switch($page){
 			echo json_encode($json);
 		}
 		break;	
-		case 8:
+	case 8:
 		$objProducto = new Producto();
 		$json = array();
 		$json['msj'] = 'Guardado correctamente';
@@ -298,7 +298,7 @@ switch($page){
 			echo json_encode($json);
 		}
 		break;
-		case 9:
+	case 9:
 		$objProducto = new Producto();
 		$json = array();
 		$json['msj'] = 'Guardado correctamente';

@@ -4,8 +4,10 @@ $edit = 0;
 function limpiar($x){$x = trim($x);$x = htmlspecialchars($x);$x = stripslashes($x); return $x;}
 require('Config/conexion.php');
 if (isset($_GET['id'])) {
-	$id = $_GET['id']; $id = limpiar($id);
-	if (!empty($id) && is_numeric($id)) {
+	$id = $_GET['id']; 
+	$id = limpiar($id);
+	if (!empty($id))  {
+	//if (!empty($id) && is_numeric($id)) {
 		$show = $cnx->query("SELECT * FROM lotes_kardex WHERE id = $id");
 		foreach ($show as $x) {
 			$edit = 1;
@@ -41,8 +43,9 @@ if (isset($_GET['id'])) {
 		if (empty($lote)) {
 			$error .= "No existe el registro";
 		}
-	}else{
-		$error .= "Error en el registro";
+	}
+	else{
+		$error .= "No existe el movimiento";
  	}
 }
 //nuevo_prod.php

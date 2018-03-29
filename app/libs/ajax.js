@@ -195,7 +195,7 @@ $(function(){
 			success: function(data) {
 				if(data.success==true){
  						alertify.success(data.msj);
-						$("#infocliente").load(data.msj);
+						//$("#infocliente").load(data.msj);
 				}else{
 					alertify.error(data.msj);
 				}
@@ -221,16 +221,21 @@ $(function(){
 		var id_proveedor = $("#id_proveedor").val();
 		var id_bodega = $("#id_bodega").val();
 		var preciounitario = $("#preciounitario").val();
-		
+		var cadena =  'Controller/ProductoController.php?page=9&&idupdate='+idupdate+'&&lote='+lote+'&&fechavence='+fechavence+'&&fechaingreso='+fechaingreso+'&&documento='+documento+'&&idproducto='+idproducto+'&&cantidad='+cantidad+'&&usuario='+usuario+'&&serie_fac='+serie_fac+'&&id_proveedor='+id_proveedor+'&&id_bodega='+id_bodega+'&&preciounitario='+preciounitario;
+
 		$.ajax({
 			url: 'Controller/ProductoController.php?page=9&&idupdate='+idupdate+'&&lote='+lote+'&&fechavence='+fechavence+'&&fechaingreso='+fechaingreso+'&&documento='+documento+'&&idproducto='+idproducto+'&&cantidad='+cantidad+'&&usuario='+usuario+'&&serie_fac='+serie_fac+'&&id_proveedor='+id_proveedor+'&&id_bodega='+id_bodega+'&&preciounitario='+preciounitario,
 			data: {'idupdate':idupdate, 'lote':lote, 'fechavence':fechavence, 'fechaingreso':fechaingreso, 'documento':documento, 'idproducto':idproducto, 'cantidad':cantidad, 'usuario':usuario, 'serie_fac':serie_fac, 'id_proveedor':id_proveedor, 'id_bodega':id_bodega, 'preciounitario':preciounitario},
 			type: 'POST',
 			dataType: 'json',
 			success: function(data) {
+
 				if(data.success==true){
  						alertify.success(data.msj);
-						$("#infocliente").load(data.msj);
+ 						alertify.success(cadena);
+ 						console.log(cadena);
+						//$("#infocliente").load(data.msj);
+
 				}else{
 					alertify.error(data.msj);
 				}

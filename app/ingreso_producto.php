@@ -170,7 +170,7 @@
   </div>
 </div>
 <?php if ($edit == 1): ?>
-  <input type="hidden" name="idupdate" value="<?php echo $idupdate; ?>">
+  <input type="text" name="idupdate" id="idupdate"  value="<?php echo $idupdate; ?>">
 <?php endif ?>
 </fieldset>
 </form>
