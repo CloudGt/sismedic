@@ -80,7 +80,7 @@
   <label class="col-md-4 control-label" for="fechaingreso">Fecha Ingreso</label>  
   <div class="col-md-8">
     <?php if ($edit == 0): ?>
-      <input id="fechaingreso" name="fechaingreso" type="date" class="form-control input-md" required>
+      <input id="fechaingreso" name="fechaingreso" type="date" value="<?php echo date('Y'); ?>" class="form-control input-md" required>
     <?php endif ?>
     <?php if ($edit == 1): ?>
       <input id="fechaingreso" name="fechaingreso" type="date" class="form-control input-md" value="<?php echo $fechaingreso; ?>" required>
@@ -183,5 +183,17 @@
     <?php endif ?>
 </div>
 </div>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $("#producto").change(function(){
+      $('#idproducto').val($(this).val());
+    });
+    $("#idproducto").change(function(){
+      $('#producto').val($(this).val());
+    });
+
+  });
+</script>
 </body>
 </html>

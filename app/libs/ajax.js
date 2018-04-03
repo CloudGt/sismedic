@@ -172,7 +172,7 @@ $(function(){
 	});
 
 
-});
+
 	$("#btn_addprod").off("click");	
 	$("#btn_addprod").on("click", function(e) {
 		var lote  = $("#lote").val();
@@ -207,7 +207,7 @@ $(function(){
 		});	
 				
 	});
-		$("#btn_addprod_update").off("click");	
+	$("#btn_addprod_update").off("click");	
 	$("#btn_addprod_update").on("click", function(e) {
 		var idupdate  = $("#idupdate").val();
 		var lote  = $("#lote").val();
@@ -242,8 +242,7 @@ $(function(){
 			},
 			error: function(jqXHR, textStatus, error) {
 				alertify.error('error ajax' + error);
-				
 			}
 		});	
-				
 	});
+});
