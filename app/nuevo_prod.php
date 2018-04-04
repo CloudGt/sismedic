@@ -25,6 +25,18 @@
 <!-- Form Name -->
 <legend>Nuevo Producto</legend>
 <!-- Select Basic -->
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="id_empresa">Empresa</label>
+  <div class="col-md-8">
+    <select id="id_empresa" name="id_empresa" class="form-control">
+      <?php empresa($empresa); ?>
+    </select>    
+  </div>
+</div>
+
+
+
 <div class="form-group">
   <label class="col-md-4 control-label" for="idpresentacion">Presentación</label>
   <div class="col-md-8">

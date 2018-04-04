@@ -24,6 +24,11 @@
 <fieldset>
 <!-- Form Name -->
 <legend>Ingreso de Mercaderia</legend>
+
+
+
+
+
 <div class="form-group">
   <label class="col-md-4 control-label" for="id_proveedor">Casa Medica</label>
   <div class="col-md-8">

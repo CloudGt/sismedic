@@ -5,7 +5,7 @@ include('data/conexion.php');
 $_SESSION['Bandera'] = "";
 $_SESSION['Usr'] = "";
 $_SESSION['Pwd'] = "";
-$_SESSION['Nip'] = "";
+$_SESSION['IDUSUARIO'] = "";
 $_SESSION['Nombre'] = "";
 $_SESSION['Nivel'] = "";
 $_SESSION['Total'] = "";
@@ -44,7 +44,7 @@ if( $GetUser === false) {
 			die( print_r( "Descripcion de Error " . mysqli_error($conn)) );
 		}
 while( $row = mysqli_fetch_array( $GetUser)) {
-	$id=$row["NIP"];
+	$id=$row["IDUSUARIO"];
 	$ususs=$row["USUARIO"];
 	$nom1=$row["NOMBRE"];
 	$apep=$row["ACTIVO"];

@@ -233,9 +233,10 @@ switch($page){
 			$preciod =$_GET['preciod'];
 			$precioe =$_GET['precioe'];
 			$preciof =$_GET['preciof'];
-			$objProducto->guardarproducto($descripcion, $precio, $idprov, $idpresentacion, $tipomedicamento, $afecto,$precioa,$preciob,$precioc,$preciod,$precioe,$preciof);
+			$idempresa= $_GET['idempresa'];
+			$objProducto->guardarproducto($descripcion, $precio, $idprov, $idpresentacion, $tipomedicamento, $afecto,$precioa,$preciob,$precioc,$preciod,$precioe,$preciof,$idempresa);
 			$json['success'] = true;
-			$json['msj'] = 'Guardado correctamente';
+			$json['msj'] = 'Guardado correctamente2';
 			echo json_encode($json);
 		} catch (PDOException $e) {
 			$json['msj'] = $e->getMessage();

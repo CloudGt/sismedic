@@ -23,7 +23,7 @@ if (isset($_GET['id'])) {
 			}
 			$cantidad = $x['cantidad'];
 			$usuario_edit = $x['usuario'];
-			$nusuario = $cnx->query("SELECT USUARIO FROM EMPLEADO WHERE NIP = $usuario_edit");
+			$nusuario = $cnx->query("SELECT USUARIO FROM EMPLEADO WHERE IDUSUARIO = $usuario_edit");
 			foreach ($nusuario as $yy) {
 				$n_usuario = $yy['USUARIO'];
 			}
@@ -50,11 +50,13 @@ if (isset($_GET['id'])) {
 }
 //nuevo_prod.php
 $casa_medica = $cnx->query("SELECT * FROM casa_medica WHERE activo = 1");
+
 $producto = $cnx->query("SELECT * FROM producto");
 $usuario = $_SESSION['username'];
 $id_usuario = $_SESSION['usern'];
 $bodega = $cnx->query("SELECT * FROM bodegas WHERE activo = 'S'");
 function casa_medica($x){foreach ($x as $xx) {$idprov = $xx['idprov'];$nombre = $xx['nombre'];echo "<option value='$idprov'>$nombre</option>";}}
+
 function producto($x){foreach ($x as $xx) {$idprod = $xx['id'];$descripcion = $xx['descripcion'];echo "<option value='$idprod'>$descripcion</option>";}}
 function bodega($x){foreach ($x as $xx) {$idbod = $xx['id_bodega'];$descripcion = $xx['descripcion'];echo "<option value='$idbod'>$descripcion</option>";}}
 
