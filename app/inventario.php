@@ -1,6 +1,6 @@
 
 
-<?php require_once('Model/proveedores.php'); ?>
+<?php require_once('Model/inventario.php'); ?>
 <style type="text/css">
   .activo {
      width: 1rem;
@@ -20,8 +20,8 @@
 }
 </style>
 
-<button type="button" class="btn btn-primary float-right mb-2" data-toggle="modal" data-target="#addproveedor">
-  Agregar Proveedor
+<button type="button" class="btn btn-primary float-right mb-2" data-toggle="modal" data-target="#addproducto">
+  Agregar Producto
 </button>
 <table id="contenido" class="table table-bordered table-striped">
                 <thead>
@@ -35,12 +35,12 @@
                   <th>Proveedor</th>
                   <th>Nota</th>
                   <th>Opcion</th>
-                  <th>Código Barras</th>
+                  
                   
                 </tr>
                 </thead>
                 <tbody>
-                 <!-- <?php tabla($info); ?>  -->
+                  <?php inventario($info);?>  
                 </tbody>
                 <tfoot>
                 <tr>
@@ -53,11 +53,36 @@
                   <th>Proveedor</th>
                   <th>Nota</th>
                   <th>Opcion</th>
-                  <th>Código Barras</th>
+                  
                   
                   </tr>
                 </tfoot>
               </table>
+
+
+<!-- Add -->
+<div class="modal fade" id="addproducto" tabindex="-1" role="dialog" aria-labelledby="addproductoLabel" aria-hidden="true">
+   <div class="modal-dialog" role="document">
+      <div class="modal-content">
+         <div class="modal-header">
+            <h5 class="modal-title" id="addproductoLabel">Agregar Proveedor</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+         </div>
+         <div class="modal-body">
+            <div id="nuevoprod">
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+<!-- view -->
+<script type="text/javascript">
+  $(document).ready(function(){
+    $("#nuevoprod").load("nuevo_prod.php"); 
+})
+ </script>
 
 <script type="text/javascript">
 $(document).ready(function() {

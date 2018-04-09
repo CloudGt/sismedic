@@ -38,7 +38,7 @@ function tabla($x){
 			<th>$nota	</th>
 			<th>$estado	</th>
 			<th>$p_fecha	</th>
-			<th><button type='button' class='btn btn-primary' data-toggle='modal' data-target='#viewproveedor'>Editar</button></th>
+			<th><button type='button' class='btn btn-primary' data-toggle='modal' data-target='#addproveedor'>Editar</button></th>
 			</tr>
 		";
 

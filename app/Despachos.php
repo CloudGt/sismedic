@@ -88,7 +88,7 @@ if(isset($_GET["doc"])){
       </div>
       <hr>
       <div class="col-md-12" style="margin-top: 10px;">
-        <button type="submit" class="btn btn-primary">
+        <button type="submit" class="btn btn-primary" id= "enviar_rev" name= "enviar_rev" estado= "'.$estado.'" iddoc= "'.$xiddoc.'">
           Enviar a revisión
         </button>
       </div>

@@ -51,7 +51,7 @@ class Producto
 	}
 	function ObtenerDocumentos($tipodoc)
 	{
-		$sql = "SELECT v.*,LPAD(id, 6, '0') as xdoc, c.RazonSocial AS cliente, TIMESTAMPDIFF(MINUTE, v.FECHAOP, CURRENT_TIMESTAMP()) as hace FROM venta v inner join cliente c on v.nit_dpi= c.Nit2 WHERE estado = '$tipodoc' order by v.id desc";
+		$sql = "SELECT DISTINCT v.*,LPAD(id, 6, '0') as xdoc, c.RazonSocial AS cliente, TIMESTAMPDIFF(MINUTE, v.FECHAOP, CURRENT_TIMESTAMP()) as hace FROM venta v inner join cliente c on v.nit_dpi= c.Nit2 WHERE estado = '$tipodoc' order by v.id desc";
 
 		global $cnx;
 		return $cnx->query($sql);
@@ -65,9 +65,7 @@ class Producto
 	}
 
 	function guardarproducto($descripcion, $precio, $idprov, $idpresentacion, $tipomedicamento, $afecto,$precioa,$preciob,$precioc,$preciod,$precioe,$preciof,$idempresa)
-	{
-		/*$sql = "INSERT INTO producto (descripcion, precio, idprov, idpresentacion, tipomedicamento, afecto) VALUES ($descripcion, $precio, $idprov, $idpresentacion, $tipomedicamento, $afecto)";		*/
-		$sql = "INSERT INTO `producto` (`id`, `descripcion`, `precio`, `precioa`, `preciob`, `precioc`, `preciod`, `precioe`, `preciof`, `idprov`, `idpresentacion`, `tipomedicamento`, `afecto`, `empresa`) VALUES (NULL, '$descripcion', '$precio', '$precioa', '$preciob', '$precioc', '$preciod', '$precioe', '$preciof', '$idprov', '$idpresentacion', '$tipomedicamento', '$afecto', '$idempresa')";
+	{	$sql = "INSERT INTO `producto` (`id`, `descripcion`, `precio`, `precioa`, `preciob`, `precioc`, `preciod`, `precioe`, `preciof`, `idprov`, `idpresentacion`, `tipomedicamento`, `afecto`, `empresa`) VALUES (NULL, '$descripcion', '$precio', '$precioa', '$preciob', '$precioc', '$preciod', '$precioe', '$preciof', '$idprov', '$idpresentacion', '$tipomedicamento', '$afecto', '$idempresa')";
 		global $cnx;
 		return $cnx->query($sql);
 	}
@@ -86,7 +84,15 @@ class Producto
 		global $cnx;
 		return $cnx->query($sql);
 	}
-	/*	 */
+
+	function actualiza_estado($iddoc,$estado)
+	{
+		$sql = "UPDATE venta_detalle SET estado= '$estado' where idventa= $iddoc";
+		global $cnx;
+		return $cnx->query($sql);
+	}
+
+	
 	function addproducto($lote, $fechavence, $fechaingreso, $documento, $idproducto, $cantidad, $usuario, $serie_fac, $id_proveedor, $id_bodega, $preciounitario)
 	{
 		$sql = "INSERT INTO `lotes_kardex` (`id`, `lote`, `fechavence`, `fechaingreso`, `documento`, `idproducto`, `cantidad`, `usuario`, `serie_fac`, `idproveedor`, `id_bodega`, `preciounitario`) VALUES (NULL, '$lote', '$fechavence', '$fechaingreso', '$documento', '$idproducto', '$cantidad', '$usuario', '$serie_fac', '$id_proveedor', '$id_bodega', '$preciounitario')";

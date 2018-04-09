@@ -236,7 +236,7 @@ switch($page){
 			$idempresa= $_GET['idempresa'];
 			$objProducto->guardarproducto($descripcion, $precio, $idprov, $idpresentacion, $tipomedicamento, $afecto,$precioa,$preciob,$precioc,$preciod,$precioe,$preciof,$idempresa);
 			$json['success'] = true;
-			$json['msj'] = 'Guardado correctamente2';
+			$json['msj'] = 'Guardado correctamente';
 			echo json_encode($json);
 		} catch (PDOException $e) {
 			$json['msj'] = $e->getMessage();
@@ -328,5 +328,39 @@ switch($page){
 		}
 		break;
 		
+	case 10:
+		$objProducto = new Producto();
+		$json = array();
+		$json['msj'] = 'Documento Enviado correctamente';
+		$json['success'] = true;
+		try {
+			$iddoc = $_GET['iddoc'];
+			$estado =$_GET['estado'];
+			
+			if ($estado=="DSP"){ 
+				$objProducto->actualiza_estado($iddoc, 'REV');
+				
+			}
+			if ($estado=="REV"){ 
+				$objProducto->actualiza_estado($iddoc, 'IMP');
+			}
+			if ($estado=="IMP"){ 
+				$objProducto->actualiza_estado($iddoc, 'FAC');
+			}
+
+			
+
+
+
+			$json['success'] = true;
+			$json['msj'] = 'Documento Enviado correctamente: ';
+			echo json_encode($json);
+		} catch (PDOException $e) {
+			$json['msj'] = $e->getMessage();
+			$json['success'] = false;
+			echo json_encode($json);
+		}
+		break;
+			
 }
 ?>

@@ -108,6 +108,7 @@ $(function(){
 	$("#btn_guardarprod").off("click");	
 	$("#btn_guardarprod").on("click", function(e) 
 	{
+		console.log('inicio');
 		var descripcion  	= $("#descripcion").val();
 		var precio 			= $("#precio").val();
 		var idprov 			= $("#idprov").val();
@@ -145,23 +146,21 @@ $(function(){
 
 	$(".chkproducto").off("click");
 	$(".chkproducto").on("click", function(e) {
-		alertify.success("iddetalle");
 		var iddetalle = $(this).attr("value");
 		var estado = $(this).attr("estado");
-		var valor = $(this).attr("checked");
+		var valor = $(this).prop("checked");
 		
+		
+		var cadena = 'Controller/ProductoController.php?page=7&&iddetalle='+iddetalle+'&&estado='+estado+'&&valor='+valor;
+		console.log(cadena);
 		$.ajax({
-			url: 'Controller/ProductoController.php?page=7&&iddetalle='+iddetalle+'&&estado='+estado+'&&valor'+valor,
+			url: 'Controller/ProductoController.php?page=7&&iddetalle='+iddetalle+'&&estado='+estado+'&&valor='+valor,
 			type: 'post',
 			dataType: 'json',
 			success: function(data) {
 				if(data.success==true){
-					
 					alertify.success(data.msj);
-					//$(".detalle-producto").load('doc_guardado.php?xdoc=2');
 					setTimeout(function(){
-					  //window.location.href = 'impresion.php?id='+data.idventa;
-					 // $(".detalle-producto").load('detalle.php');
 					}, 3000);
 				}else{
 					alertify.error(data.msj);
@@ -247,4 +246,36 @@ $(function(){
 			}
 		});	
 	});
+
+
+	$("#enviar_rev").off("click");	
+	$("#enviar_rev").on("click", function(e) {
+		var estado = $(this).attr("estado");
+		var iddoc = $(this).attr("iddoc");
+		var cadena = 'Controller/ProductoController.php?page=10&&iddoc='+iddoc+'&&estado='+estado;
+		console.log(cadena);
+		$.ajax({
+			url: 'Controller/ProductoController.php?page=10&&iddoc='+iddoc+'&&estado='+estado,
+			data: {'iddoc':iddoc, 'estado':estado},
+			type: 'POST',
+			dataType: 'json',
+			success: function(data) {
+
+				if(data.success==true){
+ 						alertify.success(data.msj);
+ 						alertify.success(cadena);
+ 						console.log(cadena);
+						//$("#infocliente").load(data.msj);
+
+				}else{
+					alertify.error(data.msj);
+				}
+			},
+			error: function(jqXHR, textStatus, error) {
+				alertify.error('error ajax' + error);
+			}
+		});	
+	});
+
+
 });
