@@ -361,6 +361,25 @@ switch($page){
 			echo json_encode($json);
 		}
 		break;
+		case 11:
+		$objProducto = new Producto();
+		$json = array();
+		$json['msj'] = 'Guardado correctamente';
+		$json['success'] = true;
+		try {
+			$nombre =$_GET['nombre'];
+			$usuario =$_GET['usuario'];
+			$password = $_GET['password'];
+			$objProducto->adduser($nombre, $usuario, $password);
+			$json['success'] = true;
+			$json['msj'] = 'Guardado correctamente: ';
+			echo json_encode($json);
+		} catch (PDOException $e) {
+			$json['msj'] = $e->getMessage();
+			$json['success'] = false;
+			echo json_encode($json);
+		}
+		break;
 			
 }
 ?>
