@@ -305,4 +305,35 @@ $(function(){
 		});	
 					
 	});
+	$("#btn_updateuser").off("click");	
+	$("#btn_updateuser").on("click", function(e) {
+		var nombre  = $("#xnombre").val();
+		var usuario = $("#xusuario").val();
+		var password = $("#xpassword").val();
+		var pic = $("#xpic").val();
+		var id  = $("#xid").val();
+		var cadena =  'Controller/ProductoController.php?page=12&&nombre='+nombre+'&&usuario='+usuario+'&&password='+password+'&&pic='+pic+'&&id='+id;
+		console.log(cadena);
+		$.ajax({
+			url: 'Controller/ProductoController.php?page=12&&nombre='+nombre+'&&usuario='+usuario+'&&password='+password+'&&pic='+pic+'&&id='+id,
+			data: {'nombre':nombre, 'usuario':usuario, 'password':password, 'pic':pic},
+			type: 'POST',
+			dataType: 'json',
+			success: function(data) {
+				if(data.success==true){
+							alertify.success(data.msj);
+						//$("#infocliente").load(data.msj);
+				}else{
+					alertify.error(data.msj);
+				}
+			},
+			error: function(jqXHR, textStatus, error) 
+			{
+				alertify.error('error ajax' + error);
+				
+			}
+		});	
+					
+	});
+
 });

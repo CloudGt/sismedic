@@ -381,6 +381,27 @@ switch($page){
 			echo json_encode($json);
 		}
 		break;
+		case 12:
+		$objProducto = new Producto();
+		$json = array();
+		$json['msj'] = 'Actualizado correctamente';
+		$json['success'] = true;
+		try {
+			$nombre =$_GET['nombre'];
+			$usuario =$_GET['usuario'];
+			$password = $_GET['password'];
+			$pic = $_GET['pic'];
+			$id = $_GET['id'];
+			$objProducto->updateuser($usuario, $password,$nombre, $pic, $id);
+			$json['success'] = true;
+			$json['msj'] = 'Actualizado correctamente: ';
+			echo json_encode($json);
+		} catch (PDOException $e) {
+			$json['msj'] = $e->getMessage();
+			$json['success'] = false;
+			echo json_encode($json);
+		}
+		break;
 			
 }
 ?>

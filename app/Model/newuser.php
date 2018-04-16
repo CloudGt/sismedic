@@ -24,16 +24,19 @@ foreach ($x as $xx) {
 }
 /*Fin traer usuarios*/
 /*Actualizar datos*/
-if (isset($_GET['id'])) {//actualizar datos
+if (isset($_GET['id'])) {
 	$id = $_GET['id']; 
 	$id = limpiar($id);
 	if (!empty($id))  {
-		$show = $cnx->query("SELECT * FROM EMPLEADO WHERE id = $id");
+		$show = $cnx->query("SELECT * FROM empleado WHERE IDUSUARIO = $id");
 		foreach ($show as $x) {
 			$edit = 1;
 			$idupdate = $id;
-			$lote = $x['lote'];
-			
+			$usuario = $x['USUARIO'];
+			$nombre= $x['NOMBRE'];
+			$password = $x['PASSWORD'];
+			$estado = $x['ACTIVO'];
+			$puesto = $x['ID_PUESTO'];
 		}
 		if (empty($lote)) {
 			$error .= "No existe el registro";
@@ -43,4 +46,5 @@ if (isset($_GET['id'])) {//actualizar datos
 		$error .= "No existe el movimiento";
  	}
 }
+/*Fin actualizar datos*/
  ?>

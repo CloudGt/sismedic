@@ -128,6 +128,18 @@ class Producto
 		global $cnx;
 		return $cnx->query($sql);
 	}
+	function updateuser($usuario, $password, $nombre, $pic, $id){
+		global $cnx;
+		$usuario = trim($usuario);
+		if (!empty($password)) {
+			$password = sha1($password);
+			$sql = "UPDATE `empleado` SET `USUARIO` = '$usuario', `PASSWORD` = '$password', `NOMBRE` = '$nombre' WHERE `empleado`.`IDUSUARIO` = $id";
+		}else{
+		$sql = "UPDATE `empleado` SET `USUARIO` = '$usuario', `NOMBRE` = '$nombre' WHERE `empleado`.`IDUSUARIO` = $id";
+		}
+		echo $sql;
+		return $cnx->query($sql);
+	}
 	
 }
 
