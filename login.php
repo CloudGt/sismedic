@@ -36,6 +36,7 @@ foreach($_GET as $param => $value)
 if (isset ($_POST['username']) && isset ($_POST['password']))
 {
 	$u=$_POST['username'];
+	//$p=sha1($_POST['password']);
 	$p=$_POST['password'];
 	$fail=false;
 	$sql = "SELECT * FROM empleado where USUARIO = '$u' and PASSWORD = '$p' and ACTIVO = 1" ;
@@ -77,6 +78,7 @@ if($fail==false)
  if(isset($_SESSION['username']) && isset($_SESSION['password']) )
  {
  	$su=$_SESSION['username'];
+	//$sp=sha1($_SESSION['password']);
 	$sp=$_SESSION['password'];
 	//print_r($su);
 	$sql = "

@@ -105,11 +105,16 @@ class Producto
 		global $cnx;
 		return $cnx->query($sql);
 	}
-		function adduser($usuario,$password,$nombre)
+	function adduser($usuario,$password,$nombre)
 	{
 		$password = sha1($password); //encriptar la password
 		$usuario = trim($usuario);
+<<<<<<< HEAD
 		$sql = "INSERT INTO `empleado` (`idusuario`, `usuario`, `password`, `nombre`, `activo`, `id_puesto`) VALUES ('75', '$usuario', '$password', '$nombre', '0', '0');";
+=======
+		$sql = "INSERT INTO `empleado` ( `usuario`, `password`, `nombre`, `activo`, `id_puesto`) VALUES ('$usuario', '$password', '$nombre', '0', '0');";
+		echo $sql;
+>>>>>>> 6d5a66bb60c67406941b20632fb76a318e9a5538
 		global $cnx;
 		return $cnx->query($sql);
 	}

@@ -26,7 +26,7 @@
 <legend>Ingreso de Mercaderia</legend>
 
 <div class="input-group">
-  <span class="input-group-addon col-7 col-sm-4 col-md-4 col-xl-2" id="id_proveedor">Casa Medica</span>
+  <span class="input-group-addon col-7 col-sm-4 col-md-4 col-xl-2" id="xid_proveedor">Casa Medica</span>
   <?php if ($edit == 0): ?>
       <select id="id_proveedor" name="id_proveedor" class="form-control">
       <?php casa_medica($casa_medica); ?>
@@ -40,7 +40,7 @@
     <?php endif ?>
 </div>
 <div class="input-group">
-  <span class="input-group-addon col-7 col-sm-4 col-md-4 col-xl-2" id="idproducto">Codigo Producto</span>
+  <span class="input-group-addon col-7 col-sm-4 col-md-4 col-xl-2" id="xidproducto">Codigo Producto</span>
    <?php if ($edit == 0): ?>
     <input id="idproducto" name="idproducto" type="text" placeholder="Codigo Producto" class="form-control input-md" required>
   <?php endif ?>  
@@ -49,7 +49,7 @@
   <?php endif ?>   
 </div>
 <div class="input-group">
-  <span class="input-group-addon col-7 col-sm-4 col-md-4 col-xl-2" id="producto">Producto</span>
+  <span class="input-group-addon col-7 col-sm-4 col-md-4 col-xl-2" id="xproducto">Producto</span>
   <select id="producto" name="producto" class="form-control">
       <?php if ($edit == 0): ?>
         <?php producto($producto); ?>
@@ -61,7 +61,7 @@
     </select>
 </div>
 <div class="input-group">
-  <span class="input-group-addon col-7 col-sm-4 col-md-4 col-xl-2" id="cantidad">Cantidad</span>
+  <span class="input-group-addon col-7 col-sm-4 col-md-4 col-xl-2" id="xcantidad">Cantidad</span>
   <?php if ($edit == 0): ?>
     <input type="number" name="cantidad" id="cantidad" placeholder="Cantidad" class="form-control">
   <?php endif ?> 
@@ -70,7 +70,7 @@
   <?php endif ?> 
 </div>
 <div class="input-group">
-  <span class="input-group-addon col-7 col-sm-4 col-md-4 col-xl-2" id="fechaingreso">Fecha Ingreso</span>
+  <span class="input-group-addon col-7 col-sm-4 col-md-4 col-xl-2" id="xfechaingreso">Fecha Ingreso</span>
   <?php if ($edit == 0): ?>
       <input id="fechaingreso" name="fechaingreso" type="date" value="<?php echo date('Y'); ?>" class="form-control input-md" required>
     <?php endif ?>
@@ -79,7 +79,7 @@
     <?php endif ?>
 </div>
 <div class="input-group">
-  <span class="input-group-addon col-7 col-sm-4 col-md-4 col-xl-2" id="fechavence">Fecha Vencimiento</span>
+  <span class="input-group-addon col-7 col-sm-4 col-md-4 col-xl-2" id="xfechavence">Fecha Vencimiento</span>
          <?php if ($edit == 0): ?>
          <input id="fechavence" name="fechavence" type="date" class="form-control input-md" required>
     <?php endif ?>
@@ -88,7 +88,7 @@
     <?php endif ?>
 </div>
 <div class="input-group">
-  <span class="input-group-addon col-7 col-sm-4 col-md-4 col-xl-2" id="documento">Documento</span>
+  <span class="input-group-addon col-7 col-sm-4 col-md-4 col-xl-2" id="xdocumento">Documento</span>
   <?php if ($edit == 0): ?>
           <input id="documento" name="documento" type="text" placeholder="Documento" class="form-control input-md" required>
     <?php endif ?>
@@ -97,7 +97,7 @@
     <?php endif ?>
 </div>
 <div class="input-group">
-  <span class="input-group-addon col-7 col-sm-4 col-md-4 col-xl-2" id="serie_fac">Serie</span>
+  <span class="input-group-addon col-7 col-sm-4 col-md-4 col-xl-2" id="xserie_fac">Serie</span>
   <?php if ($edit == 0): ?>
         <input id="serie_fac" name="serie_fac" type="text" placeholder="Serie" class="form-control input-md" required>
     <?php endif ?>
@@ -106,7 +106,7 @@
     <?php endif ?>
 </div>
 <div class="input-group">
-  <span class="input-group-addon col-7 col-sm-4 col-md-4 col-xl-2" id="lote">Codigo Barra/Lote</span>
+  <span class="input-group-addon col-7 col-sm-4 col-md-4 col-xl-2" id="xlote">Codigo Barra/Lote</span>
    <?php if ($edit == 0): ?>
           <input id="lote" name="lote" type="text" placeholder="Codigo Barra/Lote" class="form-control input-md" required>
     <?php endif ?>
@@ -115,7 +115,7 @@
     <?php endif ?>
 </div>
 <div class="input-group">
-  <span class="input-group-addon col-7 col-sm-4 col-md-4 col-xl-2" id="usuario">Usuario</span>
+  <span class="input-group-addon col-7 col-sm-4 col-md-4 col-xl-2" id="xusuario">Usuario</span>
    <?php if ($edit == 0): ?>
           <input type="text" placeholder="Usuario" value="<?php echo $usuario; ?>" class="form-control input-md" required disabled="true">
           <input type="hidden" name="usuario" value="<?php echo $id_usuario; ?>">
@@ -126,7 +126,7 @@
     <?php endif ?>
 </div>
 <div class="input-group">
-  <span class="input-group-addon col-7 col-sm-4 col-md-4 col-xl-2" id="id_bodega">Bodega</span>
+  <span class="input-group-addon col-7 col-sm-4 col-md-4 col-xl-2" id="xid_bodega">Bodega</span>
   <select id="id_bodega" name="id_bodega" class="form-control">
          <?php if ($edit == 0): ?>
           <?php bodega($bodega); ?>
@@ -138,7 +138,7 @@
     </select>
 </div>
 <div class="input-group">
-  <span class="input-group-addon col-7 col-sm-4 col-md-4 col-xl-2" id="preciounitario">Precio Unitario</span>
+  <span class="input-group-addon col-7 col-sm-4 col-md-4 col-xl-2" id="xpreciounitario">Precio Unitario</span>
   <?php if ($edit == 0): ?>
          <input type="number" name="preciounitario" plaeholder="Precio Unitario"  id="preciounitario" class="form-control">
     <?php endif ?>

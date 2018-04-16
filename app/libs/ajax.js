@@ -276,12 +276,13 @@ $(function(){
 			}
 		});	
 	});
-$("#btn_guardaruser").off("click");	
+	$("#btn_guardaruser").off("click");	
 	$("#btn_guardaruser").on("click", function(e) {
-		var nombre  = $("#nombre").val();
-		var usuario = $("#usuario").val();
-		var password = $("#password").val();
-		
+		var nombre  = $("#xnombre").val();
+		var usuario = $("#xusuario").val();
+		var password = $("#xpassword").val();
+		var cadena =  'Controller/ProductoController.php?page=11&&nombre='+nombre+'&&usuario='+usuario+'&&password='+password;
+		console.log(cadena);
 		$.ajax({
 			url: 'Controller/ProductoController.php?page=11&&nombre='+nombre+'&&usuario='+usuario+'&&password='+password,
 			data: {'nombre':nombre, 'usuario':usuario, 'password':password},
@@ -289,18 +290,18 @@ $("#btn_guardaruser").off("click");
 			dataType: 'json',
 			success: function(data) {
 				if(data.success==true){
- 						alertify.success(data.msj);
+							alertify.success(data.msj);
 						//$("#infocliente").load(data.msj);
 				}else{
 					alertify.error(data.msj);
 				}
 			},
-			error: function(jqXHR, textStatus, error) {
+			error: function(jqXHR, textStatus, error) 
+			{
 				alertify.error('error ajax' + error);
 				
 			}
 		});	
-				
+					
 	});
-
 });
