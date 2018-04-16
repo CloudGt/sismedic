@@ -105,16 +105,26 @@ class Producto
 		global $cnx;
 		return $cnx->query($sql);
 	}
-	function adduser($usuario,$password,$nombre)
+	function adduser($usuario,$password,$nombre,$pic)
 	{
 		$password = sha1($password); //encriptar la password
 		$usuario = trim($usuario);
-<<<<<<< HEAD
-		$sql = "INSERT INTO `empleado` (`idusuario`, `usuario`, `password`, `nombre`, `activo`, `id_puesto`) VALUES ('75', '$usuario', '$password', '$nombre', '0', '0');";
-=======
-		$sql = "INSERT INTO `empleado` ( `usuario`, `password`, `nombre`, `activo`, `id_puesto`) VALUES ('$usuario', '$password', '$nombre', '0', '0');";
+		if (!empty($_FILES['xpic']['tmp_name'])) 
+					{
+						$name = $usuario;
+						$type = $_FILES['xpic']['type'];
+						$xpic = 'assets/img/profile/';
+						opendir($xpic);
+						$g_imagenes = $xpic.$name;
+						if ($type == 'image/jpeg' or $type == 'image/png' or $type == 'image/jpg')//si el tipo es correcto
+						{
+						copy($_FILES['xpic']['tmp_name'], $g_imagenes);//esto es de la imagen lo pongo aqui sino guarda la imagen aunque no se guarde el post
+						}else{
+							$error = 1;
+						}
+					}
+		$sql = "INSERT INTO `empleado` (`IDUSUARIO`, `usuario`, `password`, `nombre`, `activo`, `id_puesto`) VALUES (NULL, '$usuario', '$password', '$nombre', '0', '0');";
 		echo $sql;
->>>>>>> 6d5a66bb60c67406941b20632fb76a318e9a5538
 		global $cnx;
 		return $cnx->query($sql);
 	}

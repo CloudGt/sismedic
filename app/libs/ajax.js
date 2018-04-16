@@ -281,11 +281,12 @@ $(function(){
 		var nombre  = $("#xnombre").val();
 		var usuario = $("#xusuario").val();
 		var password = $("#xpassword").val();
-		var cadena =  'Controller/ProductoController.php?page=11&&nombre='+nombre+'&&usuario='+usuario+'&&password='+password;
+		var pic = $("#xpic").val();
+		var cadena =  'Controller/ProductoController.php?page=11&&nombre='+nombre+'&&usuario='+usuario+'&&password='+password+'&&pic='+pic;
 		console.log(cadena);
 		$.ajax({
-			url: 'Controller/ProductoController.php?page=11&&nombre='+nombre+'&&usuario='+usuario+'&&password='+password,
-			data: {'nombre':nombre, 'usuario':usuario, 'password':password},
+			url: 'Controller/ProductoController.php?page=11&&nombre='+nombre+'&&usuario='+usuario+'&&password='+password+'&&pic='+pic,
+			data: {'nombre':nombre, 'usuario':usuario, 'password':password, 'pic':pic},
 			type: 'POST',
 			dataType: 'json',
 			success: function(data) {

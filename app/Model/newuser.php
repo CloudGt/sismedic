@@ -3,7 +3,7 @@ $error = '';
 $edit = 0;
 function limpiar($x){$x = trim($x);$x = htmlspecialchars($x);$x = stripslashes($x); return $x;}
 require('Config/conexion.php'); 
-if (isset($_GET['id'])) {//actualizar datos
+/*if (isset($_GET['id'])) {//actualizar datos
 	$id = $_GET['id']; 
 	$id = limpiar($id);
 	if (!empty($id))  {
@@ -21,6 +21,7 @@ if (isset($_GET['id'])) {//actualizar datos
 	else{
 		$error .= "No existe el movimiento";
  	}
-}
+}*/
+require('nuevo_prod.php');
 
  ?>

@@ -370,7 +370,8 @@ switch($page){
 			$nombre =$_GET['nombre'];
 			$usuario =$_GET['usuario'];
 			$password = $_GET['password'];
-			$objProducto->adduser($usuario, $password,$nombre );
+			$pic = $_GET['pic'];
+			$objProducto->adduser($usuario, $password,$nombre, $pic);
 			$json['success'] = true;
 			$json['msj'] = 'Guardado correctamente: ';
 			echo json_encode($json);

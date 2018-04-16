@@ -4,7 +4,7 @@
 
   require_once 'Config/conexion.php';
   require_once 'Model/Producto.php';
-  //require_once 'Model/newuser.php';
+  require_once 'Model/newuser.php';
 
   $objProducto = new Producto();
   $resultado_producto = $objProducto->get();
@@ -20,7 +20,7 @@
   </head>
 <body>
 <div class="container">
-<form class="form-horizontal" role="form" data-toggle="validator" method="GET">
+<form class="form-horizontal" role="form" data-toggle="validator" method="POST" enctype="multipart/form-data">
 <fieldset>
 <legend>Nuevo Usuario</legend>
 <div class="input-group">
@@ -34,7 +34,11 @@
 </div>
 <div class="input-group">
   <span class="input-group-addon col-7 col-sm-4 col-md-4 col-xl-2" id="password">Contraseña</span>
-  <input id="xpassword" name="xpassword" type="xpassword" placeholder="Contraseña" class="form-control input-md" required>
+  <input id="xpassword" name="xpassword" type="password" placeholder="Contraseña" class="form-control input-md" required>
+</div>
+<div class="input-group">
+  <span class="input-group-addon col-7 col-sm-4 col-md-4 col-xl-2" id="xpic">Imagen de perfil</span>
+  <input id="xpic" name="xpic" type="file" class="form-control input-md" required>
 </div>
 </fieldset>
 
