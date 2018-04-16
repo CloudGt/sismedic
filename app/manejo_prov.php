@@ -1,25 +1,7 @@
 
 
 <?php require_once('Model/proveedores.php'); ?>
-<style type="text/css">
-  .activo {
-     width: 1rem;
-     height: 1rem;
-     -moz-border-radius: 50%;
-     -webkit-border-radius: 50%;
-     border-radius: 50%;
-     background: #5cb85c;
-}
- .noactivo {
-     width: 1rem;
-     height: 1rem;
-     -moz-border-radius: 50%;
-     -webkit-border-radius: 50%;
-     border-radius: 50%;
-     background: red;
-}
-</style>
-
+<style type="text/css">.activo {width: 1rem;height: 1rem;-moz-border-radius: 50%;-webkit-border-radius: 50%;border-radius: 50%;background: #5cb85c;}.noactivo {width: 1rem;height: 1rem;-moz-border-radius: 50%;-webkit-border-radius: 50%;border-radius: 50%;background: red;}</style>
 <button type="button" class="btn btn-primary float-right mb-2" data-toggle="modal" data-target="#addproveedor">
   Agregar Proveedor
 </button>

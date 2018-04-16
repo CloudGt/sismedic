@@ -47,6 +47,5 @@
   <button id ="btn_guardaruser" class="btn btn-success"  name="btn_guardaruser">Guardar</button>
 </div>
 </div>
-
 </body>
 </html>
