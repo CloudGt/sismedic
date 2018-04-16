@@ -109,7 +109,7 @@ class Producto
 	{
 		$password = sha1($password); //encriptar la password
 		$usuario = trim($usuario);
-		$sql = "INSERT INTO `empleado` (`idusuario`, `usuario`, `password`, `nombre`, `activo`, `id_puesto`) VALUES ('74', '$usuario', '$password', '$nombre', '0', '0');";
+		$sql = "INSERT INTO `empleado` (`idusuario`, `usuario`, `password`, `nombre`, `activo`, `id_puesto`) VALUES ('75', '$usuario', '$password', '$nombre', '0', '0');";
 		global $cnx;
 		return $cnx->query($sql);
 	}
