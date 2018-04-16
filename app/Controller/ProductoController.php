@@ -361,7 +361,7 @@ switch($page){
 			echo json_encode($json);
 		}
 		break;
-		case 11:
+	case 11:
 		$objProducto = new Producto();
 		$json = array();
 		$json['msj'] = 'Guardado correctamente';
@@ -370,7 +370,7 @@ switch($page){
 			$nombre =$_GET['nombre'];
 			$usuario =$_GET['usuario'];
 			$password = $_GET['password'];
-			$objProducto->adduser($nombre, $usuario, $password);
+			$objProducto->adduser($usuario, $password,$nombre );
 			$json['success'] = true;
 			$json['msj'] = 'Guardado correctamente: ';
 			echo json_encode($json);
