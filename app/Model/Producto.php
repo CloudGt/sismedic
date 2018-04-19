@@ -87,7 +87,9 @@ class Producto
 
 	function actualiza_estado($iddoc,$estado)
 	{
-		$sql = "UPDATE venta_detalle SET estado= '$estado' where idventa= $iddoc";
+		//$sql = "UPDATE venta_detalle SET estado= '$estado' where idventa= $iddoc";
+		$sql = "UPDATE venta SET estado= '$estado' where ID= $iddoc";
+		echo $sql;
 		global $cnx;
 		return $cnx->query($sql);
 	}
