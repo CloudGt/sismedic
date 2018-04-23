@@ -263,10 +263,6 @@ $(function(){
 
 				if(data.success==true){
  						alertify.success(data.msj);
- 						alertify.success(cadena);
- 						console.log(cadena);
-						//$("#infocliente").load(data.msj);
-
 				}else{
 					alertify.error(data.msj);
 				}

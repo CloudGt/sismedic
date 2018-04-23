@@ -348,10 +348,6 @@ switch($page){
 				$objProducto->actualiza_estado($iddoc, 'FAC');
 			}
 
-			
-
-
-
 			$json['success'] = true;
 			$json['msj'] = 'Documento Enviado correctamente: ';
 			echo json_encode($json);

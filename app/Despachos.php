@@ -89,7 +89,14 @@ if(isset($_GET["doc"])){
       <hr>
       <div class="col-md-12" style="margin-top: 10px;">
         <button type="submit" class="btn btn-primary" id= "enviar_rev" name= "enviar_rev" estado= "'.$estado.'" iddoc= "'.$xiddoc.'">
-          Enviar a revisión
+        ';
+        if ($estado=="DSP"){ 
+         echo 'Enviar a revisión';
+        }
+        if ($estado=="REV"){ 
+         echo 'Enviar a Impresion';
+        } 
+  echo '    
         </button>
       </div>
     </div>
